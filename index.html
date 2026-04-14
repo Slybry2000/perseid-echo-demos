@@ -169,6 +169,8 @@ button { font: inherit; }
   top: 0;
   min-height: 100vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 .hero-layer { position: absolute; inset: 0; will-change: transform; }
 .hero-bg {
@@ -187,9 +189,45 @@ button { font: inherit; }
   background:
     linear-gradient(180deg, rgba(12, 16, 21, 0.18) 0%, rgba(12, 16, 21, 0.48) 58%, rgba(246, 241, 234, 0.96) 100%);
 }
+.hero-wordmark {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  text-align: center;
+}
+.hero-wordmark-outline,
+.hero-wordmark-fill {
+  position: absolute;
+  font-family: var(--sans);
+  font-size: clamp(74px, 15vw, 220px);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+.hero-wordmark-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 248, 240, 0.16);
+}
+.hero-wordmark-fill {
+  background: linear-gradient(135deg, rgba(201, 122, 74, 0.95), rgba(181, 101, 60, 0.88), rgba(122, 143, 123, 0.86));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  clip-path: inset(100% 0 0 0);
+  animation: heroFillSweep 2.2s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+@keyframes heroFillSweep {
+  from { clip-path: inset(100% 0 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
 .hero-copy {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
   gap: 32px;
@@ -197,7 +235,11 @@ button { font: inherit; }
   min-height: 100vh;
   padding: 72px 0 56px;
 }
-.hero-main { color: var(--cream-strong); }
+.hero-main {
+  position: relative;
+  color: var(--cream-strong);
+  padding-top: 70px;
+}
 .hero-main h1 {
   margin-top: 18px;
   max-width: 8ch;
@@ -205,6 +247,7 @@ button { font: inherit; }
   font-size: clamp(58px, 8.6vw, 118px);
   line-height: 0.9;
   letter-spacing: -0.05em;
+  text-shadow: 0 14px 32px rgba(8, 14, 20, 0.3);
 }
 .hero-main h1 em { font-style: italic; color: var(--gold); }
 .hero-main p {
@@ -213,6 +256,16 @@ button { font: inherit; }
   color: rgba(255, 248, 240, 0.82);
   font-size: clamp(18px, 2vw, 21px);
   line-height: 1.7;
+}
+.hero-kicker {
+  margin-top: 22px;
+  max-width: 42ch;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 248, 240, 0.18);
+  color: rgba(255, 248, 240, 0.7);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .hero-card {
@@ -224,6 +277,8 @@ button { font: inherit; }
   color: var(--ink);
   box-shadow: 0 28px 64px rgba(12, 19, 28, 0.14);
   backdrop-filter: blur(12px);
+  align-self: center;
+  margin-top: 130px;
 }
 .hero-card .eyebrow {
   margin-bottom: 18px;
@@ -524,23 +579,47 @@ button { font: inherit; }
   line-height: 1.7;
 }
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  display: flex;
+  gap: 10px;
   margin-top: 28px;
+  min-height: 560px;
 }
 .gallery-card {
-  min-height: 420px;
+  flex: 1;
+  min-height: 560px;
   position: relative;
-  border-radius: var(--radius-xl);
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 20px 48px rgba(12, 19, 28, 0.14);
+  transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s ease;
+  cursor: pointer;
+}
+.gallery-grid:hover .gallery-card {
+  flex: 0.92;
+}
+.gallery-card:hover,
+.gallery-card:focus-within,
+.gallery-card.is-featured {
+  flex: 1.6;
 }
 .gallery-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(13, 19, 27, 0.06), rgba(13, 19, 27, 0.64));
+  background: linear-gradient(180deg, rgba(13, 19, 27, 0.06), rgba(13, 19, 27, 0.72));
+  z-index: 1;
+}
+.gallery-card::after {
+  content: attr(data-panel);
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  z-index: 2;
+  color: rgba(255, 248, 240, 0.72);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 .gallery-card img {
   width: 100%;
@@ -549,16 +628,38 @@ button { font: inherit; }
   transform: scale(1.02);
   transition: transform 500ms ease;
 }
-.gallery-card:hover img { transform: scale(1.08); }
+.gallery-card:hover img,
+.gallery-card:focus-within img,
+.gallery-card.is-featured img { transform: scale(1.08); }
+.gallery-card .caption {
+  z-index: 2;
+  padding: 30px 26px 28px;
+}
 .gallery-card .caption h3 {
   font-family: var(--serif);
   font-size: 34px;
   line-height: 0.96;
+  max-width: 10ch;
+  transform: translateY(12px);
+  transition: transform 360ms ease;
 }
 .gallery-card .caption p {
   margin-top: 10px;
   color: rgba(255, 248, 240, 0.78);
   line-height: 1.7;
+  max-width: 30ch;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 360ms ease, transform 360ms ease;
+}
+.gallery-card:hover .caption h3,
+.gallery-card:focus-within .caption h3,
+.gallery-card.is-featured .caption h3,
+.gallery-card:hover .caption p,
+.gallery-card:focus-within .caption p,
+.gallery-card.is-featured .caption p {
+  opacity: 1;
+  transform: translateY(0);
 }
 .faq-grid {
   display: grid;
@@ -663,9 +764,25 @@ button { font: inherit; }
   .visual-grid,
   .stack-layout,
   .apply-grid,
-  .gallery-grid,
   .faq-grid { grid-template-columns: 1fr; }
   .stack-visual { position: relative; top: 0; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .gallery-card,
+  .gallery-grid:hover .gallery-card,
+  .gallery-card:hover,
+  .gallery-card:focus-within,
+  .gallery-card.is-featured {
+    flex: unset;
+    min-height: 420px;
+  }
+  .gallery-card .caption p {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @media (max-width: 760px) {
   body {
@@ -678,6 +795,12 @@ button { font: inherit; }
   .nav-links { font-size: 12px; }
   .nav-links .btn { width: 100%; }
   .hero-main h1 { max-width: none; }
+  .hero-main { padding-top: 96px; }
+  .hero-wordmark-outline,
+  .hero-wordmark-fill {
+    font-size: clamp(58px, 22vw, 110px);
+    line-height: 0.88;
+  }
   .metric-row,
   .spot-grid { grid-template-columns: 1fr; }
   .section { padding: 76px 0; }
@@ -711,11 +834,16 @@ button { font: inherit; }
         <div class="hero-layer hero-bg"></div>
         <div class="hero-layer hero-mid"></div>
         <div class="hero-layer hero-veil"></div>
+        <div class="hero-wordmark" aria-hidden="true">
+          <div class="hero-wordmark-outline">Group<br>Trips</div>
+          <div class="hero-wordmark-fill">Group<br>Trips</div>
+        </div>
         <div class="container hero-copy">
           <div class="hero-main">
             <div class="eyebrow reveal">For community hosts</div>
             <h1 class="reveal">Bring the <em>audience</em>. We shape the trip.</h1>
             <p class="reveal">Dream Travel partners with community leaders, creators, educators, founders, and hosts to shape custom group journeys around the people who already trust them.</p>
+            <div class="hero-kicker reveal">Custom journeys for communities with real trust, clear identity, and a reason to gather.</div>
             <div class="hero-actions reveal">
               <a class="btn" href="#apply">Check Trip Fit</a>
               <a class="btn-secondary" href="#how">See the Partnership Flow</a>
@@ -886,21 +1014,21 @@ button { font: inherit; }
         </div>
 
         <div class="gallery-grid">
-          <article class="gallery-card reveal">
+          <article class="gallery-card is-featured reveal" data-panel="Panel 01">
             <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80" alt="Wine glasses on a table during a tasting">
             <div class="caption">
               <h3>Wine + Taste</h3>
               <p>For sommeliers, chefs, curators, and community tastemakers building a trip around access and flavor.</p>
             </div>
           </article>
-          <article class="gallery-card reveal">
+          <article class="gallery-card reveal" data-panel="Panel 02">
             <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80" alt="Small group walking through a scenic coastal destination">
             <div class="caption">
               <h3>Retreat + Wellness</h3>
               <p>For coaches, facilitators, and hosts whose people want immersion, presence, and a sense of reset.</p>
             </div>
           </article>
-          <article class="gallery-card reveal">
+          <article class="gallery-card reveal" data-panel="Panel 03">
             <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80" alt="Creative professional photographing a destination">
             <div class="caption">
               <h3>Creator + Culture</h3>
