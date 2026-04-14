@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dream Travel | Group Trips for Community Leaders</title>
-<meta name="description" content="Dream Travel helps creators, coaches, educators, founders, and club leaders turn trusted audiences into beautifully designed group trips.">
+<meta name="description" content="Dream Travel helps creators, educators, retreat hosts, founders, and community leaders design and launch custom hosted group trips for the people who already trust them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -262,10 +262,9 @@ button { font: inherit; }
   max-width: 42ch;
   padding-top: 18px;
   border-top: 1px solid rgba(255, 248, 240, 0.18);
-  color: rgba(255, 248, 240, 0.7);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: rgba(255, 248, 240, 0.76);
+  font-size: 15px;
+  line-height: 1.65;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .hero-card {
@@ -336,42 +335,66 @@ button { font: inherit; }
   font-size: 13px;
   line-height: 1.55;
 }
-.marquee-band {
+.trust-band {
   position: relative;
   z-index: 2;
-  margin-top: -12px;
-  padding-bottom: 18px;
+  margin-top: -8px;
+  padding: 0 0 18px;
 }
-.marquee-wrap {
-  overflow: hidden;
-  padding: 18px 0;
-  border-top: 1px solid rgba(23, 20, 18, 0.08);
-  border-bottom: 1px solid rgba(23, 20, 18, 0.08);
-  background: rgba(233, 222, 209, 0.84);
-  backdrop-filter: blur(6px);
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
 }
-.marquee-track { display: flex; white-space: nowrap; will-change: transform; }
-.marquee-track span {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  padding: 0 30px;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(23, 20, 18, 0.82);
+.trust-item {
+  padding: 18px 18px 16px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(23, 20, 18, 0.08);
+  background: rgba(247, 240, 231, 0.88);
+  box-shadow: 0 16px 34px rgba(12, 19, 28, 0.06);
 }
-.marquee-track span::after {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(201, 122, 74, 0.76);
+.trust-item strong {
+  display: block;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.trust-item span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
 }
 .section { padding: 92px 0; }
 .section.light { background: transparent; }
 .section.dark { background: linear-gradient(180deg, rgba(18, 25, 35, 0.94), rgba(10, 15, 22, 1)); }
+.audience-block {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+  max-width: 840px;
+}
+.audience-block p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.72;
+}
+.audience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.audience-tags span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(23, 20, 18, 0.09);
+  background: rgba(247, 240, 231, 0.9);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+}
 .visual-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
@@ -578,6 +601,39 @@ button { font: inherit; }
   color: rgba(244, 237, 228, 0.74);
   line-height: 1.7;
 }
+.next-grid,
+.fit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+.next-card,
+.fit-card {
+  padding: 24px;
+}
+.next-card .step,
+.fit-card strong {
+  display: inline-block;
+  color: var(--gold-deep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.next-card h3,
+.fit-card h3 {
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 0.98;
+}
+.next-card p,
+.fit-card p {
+  margin-top: 12px;
+  color: var(--muted);
+  line-height: 1.72;
+}
 .gallery-grid {
   display: flex;
   gap: 10px;
@@ -737,6 +793,11 @@ button { font: inherit; }
   text-transform: uppercase;
 }
 .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.apply-microcopy {
+  margin-top: 14px;
+  color: var(--muted);
+  line-height: 1.68;
+}
 .note {
   margin-top: 18px;
   padding: 16px 18px;
@@ -760,6 +821,9 @@ button { font: inherit; }
 }
 .reveal { opacity: 0; transform: translateY(26px); }
 @media (max-width: 1024px) {
+  .trust-grid,
+  .next-grid,
+  .fit-grid,
   .hero-copy,
   .visual-grid,
   .stack-layout,
@@ -801,6 +865,9 @@ button { font: inherit; }
     font-size: clamp(58px, 22vw, 110px);
     line-height: 0.88;
   }
+  .trust-item,
+  .next-card,
+  .fit-card { padding: 20px; }
   .metric-row,
   .spot-grid { grid-template-columns: 1fr; }
   .section { padding: 76px 0; }
@@ -820,10 +887,10 @@ button { font: inherit; }
         <div>Dream<span>Travel</span></div>
       </a>
       <div class="nav-links">
-        <a href="#why">Why Host</a>
-        <a href="#formats">Formats</a>
+        <a href="#why">Who It's For</a>
         <a href="#how">How It Works</a>
-        <a href="#apply" class="btn">Check Trip Fit</a>
+        <a href="#next">Next Steps</a>
+        <a href="#apply" class="btn">Apply to Host a Trip</a>
       </div>
     </div>
   </nav>
@@ -840,54 +907,62 @@ button { font: inherit; }
         </div>
         <div class="container hero-copy">
           <div class="hero-main">
-            <div class="eyebrow reveal">For community hosts</div>
-            <h1 class="reveal">Bring the <em>audience</em>. We shape the trip.</h1>
-            <p class="reveal">Dream Travel partners with community leaders, creators, educators, founders, and hosts to shape custom group journeys around the people who already trust them.</p>
-            <div class="hero-kicker reveal">Custom journeys for communities with real trust, clear identity, and a reason to gather.</div>
+            <div class="eyebrow reveal">For hosts with real trust</div>
+            <h1 class="reveal">Turn your community into a hosted group trip.</h1>
+            <p class="reveal">Dream Travel helps creators, educators, retreat hosts, founders, chefs, and community leaders design and launch custom trips for the people who already trust them, without having to run the travel operation yourself.</p>
+            <div class="hero-kicker reveal">Share your audience, trip idea, and timing. We will quickly tell you whether it looks like a fit.</div>
             <div class="hero-actions reveal">
-              <a class="btn" href="#apply">Check Trip Fit</a>
-              <a class="btn-secondary" href="#how">See the Partnership Flow</a>
+              <a class="btn" href="#apply">Apply to Host a Trip</a>
+              <a class="btn-secondary" href="#how">See How It Works</a>
             </div>
           </div>
           <aside class="hero-card reveal">
-            <div class="eyebrow">For community hosts</div>
-            <h2>Host a journey your people will remember.</h2>
-            <p>Retreats, culinary journeys, mastermind travel, cultural immersions, and community-led adventures built around your voice instead of a generic package.</p>
+            <div class="eyebrow">Who this is for</div>
+            <h2>Built for people who already bring a group together.</h2>
+            <p>Creators, retreat hosts, educators, chefs, photographers, founders, and community builders with a clear point of view and an audience that actually shows up.</p>
             <div class="metric-row">
               <div class="metric">
-                <strong>Your edge</strong>
-                <span>A niche with real trust and real resonance.</span>
+                <strong>Best fit</strong>
+                <span>An engaged community and a trip idea that makes sense for them.</span>
               </div>
               <div class="metric">
-                <strong>Our role</strong>
-                <span>Trip design, planning structure, and launch support.</span>
+                <strong>Dream Travel</strong>
+                <span>Trip design, planning structure, and traveler coordination support.</span>
               </div>
               <div class="metric">
-                <strong>Goal</strong>
-                <span>A trip that feels signature, cohesive, and worth gathering for.</span>
+                <strong>Next step</strong>
+                <span>We review fit, schedule a conversation, and shape the trip if it aligns.</span>
               </div>
             </div>
             <ul class="list">
-              <li>You lead a subject, community, or brand people already follow.</li>
-              <li>You want a travel partner to shape the experience behind the scenes.</li>
-              <li>You want the trip to feel unmistakably like your world.</li>
+              <li>You want to lead the experience, not manage every operational detail.</li>
+              <li>You want a premium group trip that feels specific to your world.</li>
+              <li>You want support scope, terms, and responsibilities clarified before launch.</li>
             </ul>
           </aside>
         </div>
       </div>
     </section>
 
-    <div class="marquee-band">
-      <div class="marquee-wrap">
-        <div class="marquee-track" id="marqueeTrack">
-          <span>Creators</span>
-          <span>Retreat Hosts</span>
-          <span>Wine Experts</span>
-          <span>Founders</span>
-          <span>Educators</span>
-          <span>Community Builders</span>
-          <span>Chefs</span>
-          <span>Photographers</span>
+    <div class="trust-band">
+      <div class="container">
+        <div class="trust-grid reveal">
+          <div class="trust-item">
+            <strong>Custom group travel, built around your community</strong>
+            <span>The trip is shaped around your audience and point of view, not a generic package.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Planning and coordination support from Dream Travel</strong>
+            <span>We help with trip structure, launch planning, and traveler coordination so you can focus on the experience.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Terms and support scope clarified before launch</strong>
+            <span>Host benefits, responsibilities, pricing structure, and support scope are defined in writing before promotion begins.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Designed for trust, not just audience size</strong>
+            <span>A smaller engaged community with clear interest can be a better fit than a larger but passive one.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -895,17 +970,30 @@ button { font: inherit; }
     <section class="section light" id="why">
       <div class="container">
         <div class="section-head reveal">
-          <div class="eyebrow">Why host with Dream Travel</div>
+          <div class="eyebrow">Who this is for</div>
           <h2>Travel can become your most memorable community experience.</h2>
-          <p>For the right host, a shared journey can deepen loyalty, sharpen identity, and give the community something meaningful to remember together.</p>
+          <p>For the right host, a trip can deepen loyalty, create a premium offer, and give people a reason to gather in real life around something that already matters to them.</p>
+        </div>
+
+        <div class="audience-block reveal">
+          <p>This is for people who already bring a group together, online or offline, and want to turn that trust into a thoughtful travel experience.</p>
+          <div class="audience-tags">
+            <span>Creators</span>
+            <span>Retreat hosts</span>
+            <span>Educators</span>
+            <span>Community builders</span>
+            <span>Chefs and tastemakers</span>
+            <span>Photographers</span>
+            <span>Founders with engaged communities</span>
+          </div>
         </div>
 
         <div class="visual-grid">
           <article class="image-card reveal">
             <div class="overlay">
               <div class="eyebrow" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.12);color:#fff">Shared experience</div>
-              <h3>Offline chemistry matters.</h3>
-              <p>Your best trips feel like a room your community already wanted to be in, just expanded into a destination.</p>
+              <h3>Shared travel deepens trust.</h3>
+              <p>It gives your community time together that digital interaction cannot and turns shared interest into lived memory.</p>
             </div>
           </article>
 
@@ -917,18 +1005,18 @@ button { font: inherit; }
             </article>
             <article class="spot-card">
               <div class="num">02</div>
-              <h3>Launch a signature offer</h3>
-              <p>You add a premium experience to your ecosystem without needing to build a travel company from scratch.</p>
+              <h3>Add a premium offer</h3>
+              <p>Add a high-trust experience to your brand or community without building a travel business from scratch.</p>
             </article>
             <article class="spot-card">
               <div class="num">03</div>
-              <h3>Stay in your zone</h3>
-              <p>You lead the teaching, taste, access, or community dynamic you are already known for.</p>
+              <h3>Lead the experience</h3>
+              <p>You stay focused on the teaching, access, taste, or community dynamic you are already known for.</p>
             </article>
             <article class="spot-card">
               <div class="num">04</div>
-              <h3>Build anticipation</h3>
-              <p>Strong visuals, clear language, and a confident point of view help the trip feel real before anyone inquires.</p>
+              <h3>Make the offer clear</h3>
+              <p>Clear positioning and polished launch materials help the right travelers understand the trip quickly.</p>
             </article>
           </div>
         </div>
@@ -938,8 +1026,8 @@ button { font: inherit; }
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Hosted journey process</div>
-          <h2>A tighter path for leaders exploring a group trip with Dream Travel.</h2>
-          <p>The process is intentionally simple: clarify the audience, shape the concept, align the terms, and launch with a trip that feels coherent from the first invite forward.</p>
+          <h2>A clear path from host idea to launch-ready trip.</h2>
+          <p>The process is intentionally simple: define the audience, shape the concept, align support and terms, and get the trip ready to promote with confidence.</p>
         </div>
 
         <div class="stack-layout">
@@ -954,19 +1042,19 @@ button { font: inherit; }
                 <div class="state active" data-state="1">
                   <div class="state-label">Discover</div>
                   <h3>Discovery</h3>
-                  <p>You share the audience, trip concept, destination energy, and the role you want to play.</p>
+                  <p>You share the audience, trip concept, timing, and the role you want to play in the experience.</p>
                   <div class="state-image" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80');"></div>
                 </div>
                 <div class="state" data-state="2">
                   <div class="state-label">Design</div>
                   <h3>Shape</h3>
-                  <p>Together we define the concept, guest profile, pacing, and support scope required to launch responsibly.</p>
+                  <p>Together we define the concept, guest profile, pacing, and support needed to make the trip feel coherent and workable.</p>
                   <div class="state-image" style="background-image:url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80');"></div>
                 </div>
                 <div class="state" data-state="3">
                   <div class="state-label">Confirm</div>
                   <h3>Align</h3>
-                  <p>Traveler minimums, responsibilities, benefits, and commercial terms are clarified before promotion starts.</p>
+                  <p>Traveler minimums, responsibilities, support scope, and host benefits are clarified before promotion starts.</p>
                   <div class="state-image" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80');"></div>
                 </div>
                 <div class="state" data-state="4">
@@ -983,7 +1071,7 @@ button { font: inherit; }
             <article class="feature-card active reveal" data-feature="1">
               <strong>01 Discovery</strong>
               <h3>We start with audience clarity.</h3>
-              <p>Who are your people, why would they travel with you, and what kind of story should the trip tell when they describe it to someone else?</p>
+              <p>We look at who your people are, why they would travel with you, and whether the concept fits the trust you already have with them.</p>
             </article>
             <article class="feature-card reveal" data-feature="2">
               <strong>02 Shape</strong>
@@ -993,14 +1081,47 @@ button { font: inherit; }
             <article class="feature-card reveal" data-feature="3">
               <strong>03 Align</strong>
               <h3>We protect the offer before it goes public.</h3>
-              <p>A host may or may not receive pricing support, benefits, or compensation on a given trip. Those terms are confirmed in writing before promotion begins.</p>
+              <p>Depending on the trip model and host role, benefits can include hosted travel, compensation, or revenue share. The exact structure is confirmed in writing before promotion begins.</p>
             </article>
             <article class="feature-card reveal" data-feature="4">
               <strong>04 Launch</strong>
               <h3>We make the trip feel like your world.</h3>
-              <p>The goal is not just logistics. It is a branded experience that feels cohesive from the page to the plane.</p>
+              <p>The goal is a trip that feels cohesive from the first invite through traveler communications and the trip itself.</p>
             </article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="next">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">What happens next</div>
+          <h2>Here is what happens after you apply.</h2>
+          <p>You should know quickly whether the concept is a fit and what the next step looks like.</p>
+        </div>
+
+        <div class="next-grid">
+          <article class="card next-card reveal">
+            <div class="step">01 Review fit</div>
+            <h3>We review the concept.</h3>
+            <p>We look at your audience, trip idea, and timing to see whether the opportunity is strong enough to develop.</p>
+          </article>
+          <article class="card next-card reveal">
+            <div class="step">02 Conversation</div>
+            <h3>We talk through the details.</h3>
+            <p>If it feels aligned, we schedule a conversation about goals, format, support needs, and your role as host.</p>
+          </article>
+          <article class="card next-card reveal">
+            <div class="step">03 Shape the trip</div>
+            <h3>We build the framework.</h3>
+            <p>We define the concept, guest profile, experience format, and the operational split required to launch responsibly.</p>
+          </article>
+          <article class="card next-card reveal">
+            <div class="step">04 Confirm terms</div>
+            <h3>We finalize before promotion.</h3>
+            <p>Support scope, pricing structure, host benefits, traveler minimums, and responsibilities are confirmed in writing before anything goes public.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -1043,7 +1164,7 @@ button { font: inherit; }
       <div class="container">
         <div class="section-head light reveal">
           <div class="eyebrow" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.12);color:#fff">FAQ</div>
-          <h2>Questions community leaders usually ask first.</h2>
+          <h2>Questions hosts usually ask first.</h2>
           <p>These are the practical questions most hosts ask early, especially around fit, responsibilities, and how terms are finalized before launch.</p>
         </div>
 
@@ -1058,7 +1179,7 @@ button { font: inherit; }
           </details>
           <details class="reveal">
             <summary>How are host benefits or compensation handled?</summary>
-            <p>They are customized per trip. A host may or may not receive pricing support, benefits, or compensation, and nothing is promised unless it is confirmed in writing.</p>
+            <p>They are customized per trip. Depending on the trip model and host role, benefits can include hosted travel, compensation, or revenue share. The exact structure is confirmed in writing before promotion begins.</p>
           </details>
           <details class="reveal">
             <summary>What travel conditions are still finalized later?</summary>
@@ -1071,40 +1192,64 @@ button { font: inherit; }
     <section class="section light" id="apply">
       <div class="container">
         <div class="section-head reveal">
-          <div class="eyebrow">Start here</div>
+          <div class="eyebrow">Apply to host</div>
           <h2>If you can gather the right people, we should talk about the right trip.</h2>
-          <p>Start with the essentials and Dream Travel can quickly tell you whether the concept is aligned enough to develop.</p>
+          <p>You do not need a massive audience. You need a clear point of view, real trust with your people, and a trip idea that fits them.</p>
+        </div>
+
+        <div class="fit-grid">
+          <article class="fit-card reveal">
+            <strong>Good fit</strong>
+            <h3>You already have an engaged audience.</h3>
+            <p>The right host already brings people together through content, teaching, events, membership, or community leadership.</p>
+          </article>
+          <article class="fit-card reveal">
+            <strong>Clear theme</strong>
+            <h3>You know what the trip should be about.</h3>
+            <p>A strong concept has a clear lens, whether that is food, culture, retreat, wellness, creativity, education, or access.</p>
+          </article>
+          <article class="fit-card reveal">
+            <strong>Host role</strong>
+            <h3>You want to lead the experience.</h3>
+            <p>You want to be the reason people join, without being responsible for every operational detail behind the scenes.</p>
+          </article>
+          <article class="fit-card reveal">
+            <strong>Quality bar</strong>
+            <h3>You care about memorable, not generic.</h3>
+            <p>The strongest host trips feel thoughtful, coherent, and worth talking about long after people get home.</p>
+          </article>
         </div>
 
         <div class="apply-grid">
           <article class="apply-photo reveal">
             <div class="overlay">
-              <div class="eyebrow" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.12);color:#fff">Ambassador fit</div>
-              <h3>Send the concept, not a deck.</h3>
-              <p>We only need enough to understand the audience, the trip idea, and whether the offer has real energy.</p>
+              <div class="eyebrow" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.12);color:#fff">Next step</div>
+              <h3>Tell us about the people, not just the place.</h3>
+              <p>A strong application explains who your audience is, why the trip fits them, and how involved you want to be.</p>
             </div>
           </article>
 
           <article class="apply-card reveal">
             <div class="eyebrow">What to send</div>
-            <h3>A short ambassador brief is enough.</h3>
-            <p>Reach out with the essentials and Dream Travel can tell you quickly whether the concept is aligned enough to develop.</p>
+            <h3>Apply to host a trip.</h3>
+            <p>Send your audience, trip concept, rough timing, and how involved you want to be. We will let you know quickly if it looks like a strong fit.</p>
             <ul class="checklist">
               <li><strong>Community</strong>Who follows you, studies with you, buys from you, or shows up for your events.</li>
-              <li><strong>Trip idea</strong>The travel concept, destination energy, and why it fits your audience.</li>
+              <li><strong>Trip idea</strong>The travel concept, the type of experience, and why it fits your audience.</li>
               <li><strong>Timing</strong>Your rough window, plus whether you already have likely travelers in mind.</li>
               <li><strong>Role</strong>How hands-on you want to be during planning and while the trip is live.</li>
             </ul>
             <div class="cta-row">
-              <a class="btn" href="mailto:clients@dream-travel.net?subject=Ambassador%20Trip%20Inquiry&body=Name:%0ACommunity:%0ATrip%20idea:%0ADestination%20interest:%0ATiming:%0ARole:%0A">Email Dream Travel</a>
-              <a class="btn-secondary" href="tel:+15712068949">Call 571 206 8949</a>
+              <a class="btn" href="mailto:clients@dream-travel.net?subject=Apply%20to%20Host%20a%20Trip&body=Name:%0ACommunity:%0ATrip%20idea:%0AType%20of%20experience:%0ATiming:%0ARole:%0A">Apply to Host a Trip</a>
+              <a class="btn-secondary" href="tel:+15712068949">Call Dream Travel</a>
             </div>
+            <div class="apply-microcopy">We review fit first. If the concept is aligned, we will schedule a conversation and shape next steps with you.</div>
             <ul class="contact-list">
               <li><strong>Email</strong><a href="mailto:clients@dream-travel.net">clients@dream-travel.net</a></li>
               <li><strong>Instagram</strong><a href="https://www.instagram.com/dreamtravel_adventures/" target="_blank" rel="noopener noreferrer">@dreamtravel_adventures</a></li>
               <li><strong>Privacy</strong>Inquiry details are used only to reply about trip fit and planning next steps.</li>
             </ul>
-            <div class="note">Trip details, traveler minimums, pricing support, host benefits, responsibilities, and commercial terms are confirmed in writing before promotion begins.</div>
+            <div class="note">Support scope, pricing structure, host benefits, responsibilities, traveler minimums, and commercial terms are confirmed in writing before promotion begins.</div>
           </article>
         </div>
       </div>
@@ -1114,7 +1259,7 @@ button { font: inherit; }
   <footer class="site-footer">
     <div class="container row">
       <div>&copy; 2026 Dream Travel International Corp. Ambassador travel partnerships are reviewed and scoped individually.</div>
-      <div><a href="#why">Why Host</a> &middot; <a href="#how">How It Works</a> &middot; <a href="#apply">Contact</a></div>
+      <div><a href="#why">Who It's For</a> &middot; <a href="#next">Next Steps</a> &middot; <a href="#apply">Apply</a></div>
     </div>
   </footer>
 </div>
@@ -1161,17 +1306,6 @@ button { font: inherit; }
     }
   });
 
-  var marquee = document.getElementById("marqueeTrack");
-  if (marquee) {
-    marquee.innerHTML += marquee.innerHTML;
-    gsap.to(marquee, {
-      xPercent: -50,
-      ease: "none",
-      duration: 26,
-      repeat: -1
-    });
-  }
-
   var spotGrid = document.getElementById("spotGrid");
   if (spotGrid) {
     spotGrid.addEventListener("mousemove", function (event) {
@@ -1203,6 +1337,19 @@ button { font: inherit; }
       onEnter: function () { activateState(index); },
       onEnterBack: function () { activateState(index); }
     });
+  });
+
+  var galleryCards = document.querySelectorAll(".gallery-card");
+  galleryCards.forEach(function (card) {
+    function featureCard() {
+      galleryCards.forEach(function (item) {
+        item.classList.toggle("is-featured", item === card);
+      });
+    }
+
+    card.addEventListener("mouseenter", featureCard);
+    card.addEventListener("focusin", featureCard);
+    card.addEventListener("click", featureCard);
   });
 })();
 </script>
