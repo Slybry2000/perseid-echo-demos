@@ -19,7 +19,7 @@
   --muted: #73675d;
   --muted-dark: rgba(244, 237, 228, 0.72);
   --gold: #d18a3f;
-  --gold-deep: #b56919;
+  --gold-deep: #b07d1e;
   --sage: #647562;
   --line: rgba(23, 20, 18, 0.1);
   --line-dark: rgba(255, 255, 255, 0.1);
@@ -35,7 +35,7 @@ body {
   background:
     radial-gradient(circle at 18% 8%, rgba(209, 138, 63, 0.16), transparent 24%),
     radial-gradient(circle at 82% 0%, rgba(100, 117, 98, 0.16), transparent 22%),
-    linear-gradient(180deg, #f7f0e7 0%, #efe4d6 46%, #0d131b 46%, #0d131b 100%);
+    linear-gradient(180deg, #fdfbf7 0%, #f1e8db 44%, #0c1015 44%, #0c1015 100%);
   color: var(--ink);
   font-family: var(--sans);
   overflow-x: hidden;
@@ -159,7 +159,7 @@ button { font: inherit; }
   padding-inline: 22px;
 }
 .nav-links a:hover { color: var(--ink); }
-.hero-shell { position: relative; min-height: 220vh; }
+.hero-shell { position: relative; min-height: 190vh; }
 .hero-sticky {
   position: sticky;
   top: 0;
@@ -170,7 +170,7 @@ button { font: inherit; }
 .hero-bg {
   background:
     linear-gradient(180deg, rgba(9, 14, 21, 0.32), rgba(9, 14, 21, 0.66)),
-    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+    url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
   transform: scale(1.08);
 }
 .hero-mid {
@@ -181,7 +181,7 @@ button { font: inherit; }
 }
 .hero-veil {
   background:
-    linear-gradient(180deg, rgba(13, 19, 27, 0.24) 0%, rgba(13, 19, 27, 0.5) 58%, rgba(247, 240, 231, 0.94) 100%);
+    linear-gradient(180deg, rgba(12, 16, 21, 0.26) 0%, rgba(12, 16, 21, 0.54) 56%, rgba(253, 251, 247, 0.95) 100%);
 }
 .hero-copy {
   position: relative;
@@ -216,7 +216,7 @@ button { font: inherit; }
   padding: 26px;
   border-radius: var(--radius-xl);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(12, 19, 28, 0.58);
+  background: rgba(12, 16, 21, 0.62);
   color: var(--cream);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
@@ -250,7 +250,7 @@ button { font: inherit; }
   margin-top: 16px;
   list-style: none;
 }
-.hero-card .list li::before { content: "+ "; color: var(--gold); }
+.hero-card .list li::before { content: "\203A  "; color: var(--gold); }
 .metric-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -303,12 +303,12 @@ button { font: inherit; }
   color: rgba(23, 20, 18, 0.82);
 }
 .marquee-track span::after {
-  content: "+";
+  content: "\25C6";
   color: rgba(209, 138, 63, 0.55);
   font-size: 12px;
 }
 .section { padding: 92px 0; }
-.section.light { background: linear-gradient(180deg, rgba(255, 248, 240, 0.2), rgba(255, 248, 240, 0.52)); }
+.section.light { background: linear-gradient(180deg, rgba(255, 248, 240, 0.12), rgba(255, 248, 240, 0.56)); }
 .section.dark { background: linear-gradient(180deg, rgba(13, 19, 27, 0.02), rgba(13, 19, 27, 0.18)); }
 .visual-grid {
   display: grid;
@@ -662,7 +662,7 @@ button { font: inherit; }
   body {
     background:
       radial-gradient(circle at 18% 8%, rgba(209, 138, 63, 0.16), transparent 24%),
-      linear-gradient(180deg, #f7f0e7 0%, #efe4d6 38%, #0d131b 38%, #0d131b 100%);
+    linear-gradient(180deg, #fdfbf7 0%, #f1e8db 36%, #0c1015 36%, #0c1015 100%);
   }
   .site-nav .container,
   .nav-links { gap: 12px; }
@@ -704,17 +704,17 @@ button { font: inherit; }
         <div class="hero-layer hero-veil"></div>
         <div class="container hero-copy">
           <div class="hero-main">
-            <div class="eyebrow reveal">Community-led group travel</div>
+            <div class="eyebrow reveal">For community hosts</div>
             <h1 class="reveal">Bring the <em>audience</em>. We shape the trip.</h1>
-            <p class="reveal">Dream Travel helps community leaders, creators, educators, founders, and hosts with trusted audiences turn a clear group-travel idea into a custom experience people can actually picture joining.</p>
+            <p class="reveal">Dream Travel partners with community leaders, creators, educators, founders, and hosts to shape custom group journeys around the people who already trust them.</p>
             <div class="hero-actions reveal">
               <a class="btn" href="#apply">Check Trip Fit</a>
               <a class="btn-secondary" href="#how">See the Partnership Flow</a>
             </div>
           </div>
           <aside class="hero-card reveal">
-            <div class="eyebrow" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);color:#fff">Hero offer</div>
-            <h2>Launch a trip your people actually want to take together.</h2>
+            <div class="eyebrow" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);color:#fff">For community hosts</div>
+            <h2>Host a journey your people will remember.</h2>
             <p>Retreats, culinary journeys, mastermind travel, cultural immersions, and community-led adventures built around your voice instead of a generic package.</p>
             <div class="metric-row">
               <div class="metric">
@@ -731,9 +731,9 @@ button { font: inherit; }
               </div>
             </div>
             <ul class="list">
-              <li>You lead a subject, lifestyle, or community people already care about.</li>
-              <li>You want premium group travel without becoming a full-time operator.</li>
-              <li>You need a visual, story-led offer instead of a flat brochure.</li>
+              <li>You lead a subject, community, or brand people already follow.</li>
+              <li>You want a travel partner to shape the experience behind the scenes.</li>
+              <li>You want the trip to feel unmistakably like your world.</li>
             </ul>
           </aside>
         </div>
@@ -760,13 +760,13 @@ button { font: inherit; }
         <div class="section-head reveal">
           <div class="eyebrow">Why host with Dream Travel</div>
           <h2>Travel can become your most memorable community experience.</h2>
-          <p>For the right host, travel can deepen loyalty, sharpen brand identity, and give the community a shared memory worth talking about long after the trip ends.</p>
+          <p>For the right host, a shared journey can deepen loyalty, sharpen identity, and give the community something meaningful to remember together.</p>
         </div>
 
         <div class="visual-grid">
           <article class="image-card reveal">
             <div class="overlay">
-              <div class="eyebrow" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.12);color:#fff">Audience energy</div>
+              <div class="eyebrow" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.12);color:#fff">Shared experience</div>
               <h3>Offline chemistry matters.</h3>
               <p>Your best trips feel like a room your community already wanted to be in, just expanded into a destination.</p>
             </div>
@@ -790,8 +790,8 @@ button { font: inherit; }
             </article>
             <article class="spot-card">
               <div class="num">04</div>
-              <h3>Make the page feel real</h3>
-              <p>Photography, movement, and visual atmosphere help the offer feel expensive before anyone clicks.</p>
+              <h3>Build anticipation</h3>
+              <p>Strong visuals, clear language, and a confident point of view help the trip feel real before anyone inquires.</p>
             </article>
           </div>
         </div>
@@ -800,7 +800,7 @@ button { font: inherit; }
     <section class="section dark" id="how">
       <div class="container">
         <div class="section-head light reveal">
-          <div class="eyebrow" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.12);color:#fff">Sticky narrative</div>
+          <div class="eyebrow" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.12);color:#fff">Hosted journey process</div>
           <h2>A tighter path for leaders exploring a group trip with Dream Travel.</h2>
           <p>The process is intentionally simple: clarify the audience, shape the concept, align the terms, and launch with a trip that feels coherent from the first invite forward.</p>
         </div>
@@ -815,25 +815,25 @@ button { font: inherit; }
               </div>
               <div class="mockup-body">
                 <div class="state active" data-state="1">
-                  <div class="state-label">Step one</div>
+                  <div class="state-label">Discover</div>
                   <h3>Discovery</h3>
                   <p>You share the audience, trip concept, destination energy, and the role you want to play.</p>
                   <div class="state-image" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80');"></div>
                 </div>
                 <div class="state" data-state="2">
-                  <div class="state-label">Step two</div>
+                  <div class="state-label">Design</div>
                   <h3>Shape</h3>
                   <p>Together we define the concept, guest profile, pacing, and support scope required to launch responsibly.</p>
                   <div class="state-image" style="background-image:url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80');"></div>
                 </div>
                 <div class="state" data-state="3">
-                  <div class="state-label">Step three</div>
+                  <div class="state-label">Confirm</div>
                   <h3>Align</h3>
                   <p>Traveler minimums, responsibilities, benefits, and commercial terms are clarified before promotion starts.</p>
                   <div class="state-image" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80');"></div>
                 </div>
                 <div class="state" data-state="4">
-                  <div class="state-label">Step four</div>
+                  <div class="state-label">Launch</div>
                   <h3>Launch</h3>
                   <p>You bring the right people into a trip that already feels branded, polished, and worth joining.</p>
                   <div class="state-image" style="background-image:url('https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&w=1200&q=80');"></div>
@@ -871,9 +871,9 @@ button { font: inherit; }
     <section class="section light" id="formats">
       <div class="container">
         <div class="section-head reveal">
-          <div class="eyebrow">Visualized formats</div>
+          <div class="eyebrow">Hosted journeys</div>
           <h2>The strongest ambassador trips already have a point of view.</h2>
-          <p>The strongest programs feel specific from the beginning. The destination, tone, and format should make sense for your audience before anyone ever asks for details.</p>
+          <p>The strongest programs feel specific from the beginning. The destination, tone, and format should make sense for your audience before anyone asks for details.</p>
         </div>
 
         <div class="gallery-grid">
@@ -936,7 +936,7 @@ button { font: inherit; }
         <div class="section-head reveal">
           <div class="eyebrow">Start here</div>
           <h2>If you can gather the right people, we should talk about the right trip.</h2>
-          <p>The call to action stays direct, but the section now feels like a premium close instead of a plain contact block.</p>
+          <p>Start with the essentials and Dream Travel can quickly tell you whether the concept is aligned enough to develop.</p>
         </div>
 
         <div class="apply-grid">
