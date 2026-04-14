@@ -167,7 +167,7 @@ section[id],
   padding-inline: 22px;
 }
 .nav-links a:hover { color: var(--ink); }
-.hero-shell { position: relative; min-height: 155vh; }
+.hero-shell { position: relative; min-height: 220vh; }
 .hero-sticky {
   position: sticky;
   top: 0;
@@ -193,17 +193,70 @@ section[id],
   background:
     linear-gradient(180deg, rgba(12, 16, 21, 0.18) 0%, rgba(12, 16, 21, 0.48) 58%, rgba(246, 241, 234, 0.96) 100%);
 }
-.hero-wordmark {
+.hero-intro {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+  padding-top: 130px;
+}
+.hero-intro-stack {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+  width: min(100%, 980px);
+  padding: 0 24px;
+  transform: none;
+}
+.hero-intro-title {
+  font-family: var(--sans);
+  font-size: clamp(64px, 12vw, 156px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.84;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 248, 240, 0.24);
+}
+.hero-intro-reveal {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
-  text-align: center;
-  opacity: 0.58;
-  transform: translateY(120px);
+  font-family: var(--sans);
+  font-size: clamp(64px, 12vw, 156px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.84;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(201, 122, 74, 0.98), rgba(181, 101, 60, 0.9), rgba(122, 143, 123, 0.88));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  clip-path: inset(100% 0 0 0);
+  animation: heroFillSweep 2.2s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+.hero-intro-subtitle {
+  max-width: 42ch;
+  color: rgba(255, 248, 240, 0.82);
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.55;
+}
+.hero-intro-cue {
+  color: rgba(255, 248, 240, 0.68);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.hero-wordmark {
+  display: none;
 }
 .hero-wordmark-outline,
 .hero-wordmark-fill {
@@ -234,18 +287,18 @@ section[id],
 }
 .hero-copy {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
   gap: 32px;
   align-items: end;
-  min-height: 100vh;
-  padding: 72px 0 56px;
+  min-height: 180vh;
+  padding: 540px 0 72px;
 }
 .hero-main {
   position: relative;
   color: var(--cream-strong);
-  padding-top: 70px;
+  padding-top: 240px;
 }
 .hero-main::before {
   content: "";
@@ -292,7 +345,7 @@ section[id],
   box-shadow: 0 28px 64px rgba(12, 19, 28, 0.14);
   backdrop-filter: blur(12px);
   align-self: center;
-  margin-top: 72px;
+  margin-top: 260px;
 }
 .hero-card .eyebrow {
   margin-bottom: 18px;
@@ -389,6 +442,12 @@ section[id],
     linear-gradient(180deg, rgba(246, 241, 234, 0.98), rgba(241, 229, 214, 0.94));
 }
 .section.dark { background: linear-gradient(180deg, rgba(18, 25, 35, 0.94), rgba(10, 15, 22, 1)); }
+.process-head .eyebrow {
+  color: var(--ink);
+  background: rgba(255, 248, 240, 0.9);
+  border-color: rgba(255, 248, 240, 0.28);
+  font-weight: 700;
+}
 .audience-block {
   display: grid;
   gap: 16px;
@@ -684,18 +743,6 @@ section[id],
   background: linear-gradient(180deg, rgba(13, 19, 27, 0.06), rgba(13, 19, 27, 0.72));
   z-index: 1;
 }
-.gallery-card::after {
-  content: attr(data-panel);
-  position: absolute;
-  top: 22px;
-  left: 22px;
-  z-index: 2;
-  color: rgba(255, 248, 240, 0.72);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
 .gallery-card img {
   width: 100%;
   height: 100%;
@@ -900,16 +947,38 @@ section[id],
     min-height: auto;
     display: block;
   }
+  .hero-intro {
+    position: relative;
+    min-height: 300px;
+    padding-top: 10px;
+  }
+  .hero-intro-stack {
+    width: 100%;
+    padding: 24px 18px 12px;
+    gap: 12px;
+    transform: none;
+  }
+  .hero-intro-title,
+  .hero-intro-reveal {
+    position: static;
+    font-size: clamp(58px, 20vw, 94px);
+    line-height: 0.88;
+  }
+  .hero-intro-subtitle {
+    font-size: 15px;
+    max-width: 26ch;
+  }
+  .hero-intro-cue { font-size: 11px; }
   .hero-copy {
     min-height: auto;
-    padding: 34px 0 28px;
+    padding: 12px 0 28px;
     gap: 20px;
   }
   .hero-main h1 {
     max-width: none;
     font-size: clamp(48px, 14vw, 68px);
   }
-  .hero-main { padding-top: 28px; }
+  .hero-main { padding-top: 0; }
   .hero-main::before { inset: 8% -8% -8% -8%; }
   .hero-main p,
   .hero-kicker {
@@ -920,7 +989,6 @@ section[id],
     margin-top: 0;
     padding: 22px;
   }
-  .hero-wordmark { display: none; }
   .trust-item,
   .next-card,
   .fit-card { padding: 20px; }
@@ -966,6 +1034,16 @@ section[id],
         <div class="hero-layer hero-bg"></div>
         <div class="hero-layer hero-mid"></div>
         <div class="hero-layer hero-veil"></div>
+        <div class="hero-intro" aria-hidden="true">
+          <div class="hero-intro-stack">
+            <div style="position:relative;">
+              <div class="hero-intro-title">Group<br>Trips</div>
+              <div class="hero-intro-reveal">Group<br>Trips</div>
+            </div>
+            <div class="hero-intro-subtitle">Custom hosted travel for people who already know how to bring a community together.</div>
+            <div class="hero-intro-cue">Scroll to explore</div>
+          </div>
+        </div>
         <div class="hero-wordmark" aria-hidden="true">
           <div class="hero-wordmark-outline">Group<br>Trips</div>
           <div class="hero-wordmark-fill">Group<br>Trips</div>
@@ -1089,7 +1167,7 @@ section[id],
     </section>
     <section class="section dark" id="how">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head light process-head reveal">
           <div class="eyebrow">Hosted journey process</div>
           <h2>A clear path from host idea to launch-ready trip.</h2>
           <p>The process is intentionally simple: define the audience, shape the concept, align support and terms, and get the trip ready to promote with confidence.</p>
@@ -1200,21 +1278,21 @@ section[id],
         </div>
 
         <div class="gallery-grid">
-          <article class="gallery-card is-featured reveal" data-panel="Panel 01">
+          <article class="gallery-card is-featured reveal">
             <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80" alt="Wine glasses on a table during a tasting">
             <div class="caption">
               <h3>Wine + Taste</h3>
               <p>For sommeliers, chefs, curators, and community tastemakers building a trip around access and flavor.</p>
             </div>
           </article>
-          <article class="gallery-card reveal" data-panel="Panel 02">
+          <article class="gallery-card reveal">
             <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80" alt="Small group walking through a scenic coastal destination">
             <div class="caption">
               <h3>Retreat + Wellness</h3>
               <p>For coaches, facilitators, and hosts whose people want immersion, presence, and a sense of reset.</p>
             </div>
           </article>
-          <article class="gallery-card reveal" data-panel="Panel 03">
+          <article class="gallery-card reveal">
             <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80" alt="Creative professional photographing a destination">
             <div class="caption">
               <h3>Creator + Culture</h3>
