@@ -143,6 +143,16 @@ section[id],
   gap: 14px;
   flex-wrap: wrap;
 }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.brand img {
+  width: clamp(118px, 11vw, 152px);
+  height: auto;
+  object-fit: contain;
+}
 .nav-contact {
   display: inline-flex;
   align-items: center;
@@ -219,16 +229,6 @@ section[id],
   text-align: center;
   pointer-events: none;
   padding-top: 130px;
-}
-.hero-corner-logo {
-  position: absolute;
-  z-index: 4;
-  top: 88px;
-  left: max(18px, calc((100vw - 1160px) / 2 + 18px));
-  width: clamp(110px, 12vw, 168px);
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 16px 28px rgba(7, 12, 18, 0.32));
 }
 .hero-intro-stack {
   position: relative;
@@ -1276,6 +1276,7 @@ section[id],
     padding: 8px 0;
   }
   .site-nav .container { align-items: center; }
+  .brand img { width: 118px; }
   .nav-contact {
     width: 100%;
     gap: 10px;
@@ -1301,11 +1302,6 @@ section[id],
     position: relative;
     min-height: 300px;
     padding-top: 10px;
-  }
-  .hero-corner-logo {
-    top: 74px;
-    left: 18px;
-    width: 118px;
   }
   .hero-intro-stack {
     width: 100%;
@@ -1409,6 +1405,9 @@ section[id],
 <div class="page-shell">
   <nav class="site-nav">
     <div class="container">
+      <a class="brand" href="#top" aria-label="Dream Travel home">
+        <img src="logo-header.webp" alt="Dream Travel">
+      </a>
       <div class="nav-contact">
         <strong>Dream Travel</strong>
         <a href="mailto:clients@dream-travel.net">clients@dream-travel.net</a>
@@ -1432,7 +1431,6 @@ section[id],
         <div class="hero-layer hero-bg"></div>
         <div class="hero-layer hero-mid"></div>
         <div class="hero-layer hero-veil"></div>
-        <img class="hero-corner-logo" src="logo-header.webp" alt="Dream Travel">
         <div class="hero-intro" aria-hidden="true">
           <div class="hero-intro-stack">
             <div style="position:relative;">
