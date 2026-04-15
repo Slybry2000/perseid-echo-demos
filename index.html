@@ -436,6 +436,115 @@ section[id],
   font-size: 13px;
   line-height: 1.6;
 }
+.proof-section { padding-top: 28px; }
+.proof-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  gap: 22px;
+  margin-top: 28px;
+}
+.proof-panel,
+.proof-quote,
+.difference-card {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 40px rgba(12, 19, 28, 0.08);
+}
+.proof-panel {
+  padding: 32px;
+  background: linear-gradient(180deg, rgba(250, 245, 239, 0.98), rgba(238, 223, 206, 0.9));
+}
+.proof-panel h3,
+.difference-stack h3 {
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+}
+.proof-panel p,
+.difference-stack p {
+  margin-top: 14px;
+  color: var(--muted);
+  line-height: 1.78;
+}
+.proof-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+.proof-stat {
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(23, 20, 18, 0.08);
+  background: rgba(255, 248, 240, 0.78);
+}
+.proof-stat strong {
+  display: block;
+  color: var(--gold-deep);
+  font-family: var(--serif);
+  font-size: 38px;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+.proof-stat span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.proof-quote {
+  margin-top: 18px;
+  padding: 24px;
+  background: rgba(255, 248, 240, 0.9);
+}
+.proof-quote p {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.proof-quote footer {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.difference-stack {
+  display: grid;
+  gap: 18px;
+}
+.difference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.difference-card {
+  padding: 24px;
+  background: rgba(247, 240, 231, 0.92);
+}
+.difference-card strong {
+  display: inline-block;
+  color: var(--gold-deep);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.difference-card h4 {
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 0.98;
+}
+.difference-card p {
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.7;
+}
 .section { padding: 92px 0; }
 .section.light {
   background:
@@ -878,9 +987,19 @@ section[id],
   color: rgba(244, 237, 228, 0.72);
   font-size: 13px;
 }
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+}
+.footer-brand img {
+  width: 132px;
+  height: auto;
+  object-fit: contain;
+}
 .site-footer .row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
   padding-top: 18px;
@@ -889,6 +1008,7 @@ section[id],
 .reveal { opacity: 0; transform: translateY(26px); }
 @media (max-width: 1024px) {
   .trust-grid,
+  .proof-grid,
   .next-grid,
   .fit-grid,
   .hero-copy,
@@ -1015,6 +1135,8 @@ section[id],
   .gallery-card.is-featured { min-height: 340px; }
   .gallery-card .caption h3 { max-width: none; }
   .metric-row,
+  .proof-stats,
+  .difference-grid,
   .spot-grid { grid-template-columns: 1fr; }
   .section {
     padding: 76px 0;
@@ -1030,7 +1152,7 @@ section[id],
   <nav class="site-nav">
     <div class="container">
       <a class="brand" href="#top" aria-label="Dream Travel home">
-        <img src="light_version.png" alt="Dream Travel">
+        <img src="logo-header.webp" alt="Dream Travel">
       </a>
       <div class="nav-links">
         <a href="#why">Who It's For</a>
@@ -1093,7 +1215,7 @@ section[id],
             <ul class="list">
               <li>You want to lead the experience, not manage every operational detail.</li>
               <li>You want a premium group trip that feels specific to your world.</li>
-              <li>You want support scope, terms, and responsibilities clarified before launch.</li>
+              <li>You want an experienced travel partner behind the offer before it goes live.</li>
             </ul>
           </aside>
         </div>
@@ -1108,31 +1230,94 @@ section[id],
             <span>The trip is shaped around your audience and point of view, not a generic package.</span>
           </div>
           <div class="trust-item">
-            <strong>Planning and coordination support from Dream Travel</strong>
-            <span>We help with trip structure, launch planning, and traveler coordination so you can focus on the experience.</span>
+            <strong>Dream Travel handles the travel backbone</strong>
+            <span>Trip design, supplier coordination, and traveler support are built in so you can stay focused on the hosted experience.</span>
           </div>
           <div class="trust-item">
-            <strong>Terms and support scope clarified before launch</strong>
-            <span>Host benefits, responsibilities, pricing structure, and support scope are defined in writing before promotion begins.</span>
+            <strong>Commercial terms are aligned before launch</strong>
+            <span>Responsibilities, pricing structure, and the commercial structure are confirmed in writing before promotion begins.</span>
           </div>
           <div class="trust-item">
-            <strong>Designed for trust, not just audience size</strong>
-            <span>A smaller engaged community with clear interest can be a better fit than a larger but passive one.</span>
+            <strong>Built on existing travel experience</strong>
+            <span>Dream Travel's broader trip business already spans 500+ designed journeys across 40+ destinations.</span>
           </div>
         </div>
       </div>
     </div>
 
+    <section class="section light proof-section" id="proof">
+      <div class="container">
+        <div class="proof-grid">
+          <article class="proof-panel reveal">
+            <div class="eyebrow">Why Dream Travel</div>
+            <h3>A host-led offer backed by real travel experience.</h3>
+            <p>This is not a polished concept without operating depth behind it. Dream Travel already designs custom and group journeys, and this host partnership model is built on that same planning foundation, supplier coordination, and traveler care.</p>
+
+            <div class="proof-stats">
+              <div class="proof-stat">
+                <strong>500+</strong>
+                <span>Journeys designed across Dream Travel's broader trip business.</span>
+              </div>
+              <div class="proof-stat">
+                <strong>40+</strong>
+                <span>Destinations already supported through existing travel planning work.</span>
+              </div>
+              <div class="proof-stat">
+                <strong>Repeat</strong>
+                <span>Traveler feedback already points to return bookings and strong word of mouth.</span>
+              </div>
+            </div>
+
+            <blockquote class="proof-quote">
+              <p>"Well organized and planned beautifully. Very knowledgeable guide, fun travel group and an excellent driver. I have already booked another trip!"</p>
+              <footer>Eileen R. - Returning traveler</footer>
+            </blockquote>
+          </article>
+
+          <div class="difference-stack reveal">
+            <div class="section-head">
+              <div class="eyebrow">Why hosts choose Dream Travel</div>
+              <h3>Specific enough to feel like your trip. Structured enough to launch responsibly.</h3>
+              <p>What sets Dream Travel apart is not just access to travel logistics. It is the combination of custom concept work, host-aware planning, and behind-the-scenes support that lets the trip feel branded around you instead of generic.</p>
+            </div>
+
+            <div class="difference-grid">
+              <article class="difference-card">
+                <strong>Custom, not template</strong>
+                <h4>Built around your audience.</h4>
+                <p>The trip starts with your point of view, your community dynamic, and the kind of experience they would actually say yes to.</p>
+              </article>
+              <article class="difference-card">
+                <strong>High-touch shaping</strong>
+                <h4>Designed before it is promoted.</h4>
+                <p>Dream Travel helps define the concept, guest profile, pacing, and launch framing before the offer goes public.</p>
+              </article>
+              <article class="difference-card">
+                <strong>Operational backbone</strong>
+                <h4>Support without taking over.</h4>
+                <p>Planning, supplier coordination, and traveler communication support sit behind the scenes while the host relationship stays front-facing.</p>
+              </article>
+              <article class="difference-card">
+                <strong>Trusted planning base</strong>
+                <h4>Experience you can build on.</h4>
+                <p>Existing destination partners, group-travel planning experience, and traveler reviews give the offer more weight than tone alone.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section light" id="why">
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Who this is for</div>
-          <h2>Travel can become your most memorable community experience.</h2>
-          <p>For the right host, a trip can deepen loyalty, create a premium offer, and give people a reason to gather in real life around something that already matters to them.</p>
+          <h2>For the right host, travel becomes a community-defining experience.</h2>
+          <p>A strong trip can deepen loyalty, create a premium offer, and give people a reason to gather in real life around something that already matters to them.</p>
         </div>
 
         <div class="audience-block reveal">
-          <p>This is for people who already bring a group together, online or offline, and want to turn that trust into a thoughtful travel experience.</p>
+          <p>This is for people who already bring a group together, online or offline, and want to turn that trust into a thoughtfully designed shared experience.</p>
           <div class="audience-tags">
             <span>Creators</span>
             <span>Retreat hosts</span>
@@ -1162,7 +1347,7 @@ section[id],
             <article class="spot-card">
               <div class="num">02</div>
               <h3>Add a premium offer</h3>
-              <p>Add a high-trust experience to your brand or community without building a travel business from scratch.</p>
+              <p>Add a premium experience to your brand or community without turning yourself into a travel operator.</p>
             </article>
             <article class="spot-card">
               <div class="num">03</div>
@@ -1183,7 +1368,7 @@ section[id],
         <div class="section-head light process-head reveal">
           <div class="eyebrow">Hosted journey process</div>
           <h2>A clear path from host idea to launch-ready trip.</h2>
-          <p>The process is intentionally simple: define the audience, shape the concept, align support and terms, and get the trip ready to promote with confidence.</p>
+          <p>The process is intentionally simple: check fit, shape the concept, define responsibilities, and prepare the trip for launch.</p>
         </div>
 
         <div class="stack-layout">
@@ -1210,7 +1395,7 @@ section[id],
                 <div class="state" data-state="3">
                   <div class="state-label">Confirm</div>
                   <h3>Align</h3>
-                  <p>Traveler minimums, responsibilities, support scope, and host benefits are clarified before promotion starts.</p>
+                  <p>Responsibilities, traveler minimums, and the commercial structure are defined before promotion starts.</p>
                   <div class="state-image" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80');"></div>
                 </div>
                 <div class="state" data-state="4">
@@ -1236,13 +1421,13 @@ section[id],
             </article>
             <article class="feature-card reveal" data-feature="3">
               <strong>03 Align</strong>
-              <h3>We protect the offer before it goes public.</h3>
-              <p>Depending on the trip model and host role, benefits can include hosted travel, compensation, or revenue share. The exact structure is confirmed in writing before promotion begins.</p>
+              <h3>We define the business side before launch.</h3>
+              <p>Responsibilities, traveler minimums, and any host compensation or hosted travel arrangement are set case by case and confirmed in writing before promotion begins.</p>
             </article>
             <article class="feature-card reveal" data-feature="4">
               <strong>04 Launch</strong>
-              <h3>We make the trip feel like your world.</h3>
-              <p>The goal is a trip that feels cohesive from the first invite through traveler communications and the trip itself.</p>
+              <h3>We make the trip easy to understand.</h3>
+              <p>Messaging, guest profile, and launch materials are shaped so the offer feels clear before the first invitation goes out.</p>
             </article>
           </div>
         </div>
@@ -1253,8 +1438,8 @@ section[id],
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">What happens next</div>
-          <h2>Here is what happens after you apply.</h2>
-          <p>You should know quickly whether the concept is a fit and what the next step looks like.</p>
+          <h2>What happens after you apply.</h2>
+          <p>You should know early whether the concept is worth developing and what the next step looks like.</p>
         </div>
 
         <div class="next-grid">
@@ -1276,7 +1461,7 @@ section[id],
           <article class="card next-card reveal">
             <div class="step">04 Confirm terms</div>
             <h3>We finalize before promotion.</h3>
-            <p>Support scope, pricing structure, host benefits, traveler minimums, and responsibilities are confirmed in writing before anything goes public.</p>
+            <p>If it moves forward, responsibilities, pricing structure, traveler minimums, and the commercial structure are confirmed before anything goes public.</p>
           </article>
         </div>
       </div>
@@ -1286,7 +1471,7 @@ section[id],
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Hosted journeys</div>
-          <h2>The strongest ambassador trips already have a point of view.</h2>
+          <h2>The strongest host-led trips already have a point of view.</h2>
           <p>The strongest programs feel specific from the beginning. The destination, tone, and format should make sense for your audience before anyone asks for details.</p>
         </div>
 
@@ -1321,25 +1506,25 @@ section[id],
         <div class="section-head light reveal">
           <div class="eyebrow" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.12);color:#fff">FAQ</div>
           <h2>Questions hosts usually ask first.</h2>
-          <p>These are the practical questions most hosts ask early, especially around fit, responsibilities, and how terms are finalized before launch.</p>
+          <p>These are the practical questions most hosts ask early, especially around role, structure, and what gets finalized before launch.</p>
         </div>
 
         <div class="faq-grid">
           <details class="reveal" open>
-            <summary>Do I need a huge audience for this to make sense?</summary>
-            <p>No. Fit is more about trust, clarity, and trip relevance than raw audience size. A focused community with real intent can be stronger than broad but passive reach.</p>
+            <summary>Do you only work with big creators or influencers?</summary>
+            <p>No. A focused community with real trust and a clear trip concept can be a stronger fit than a larger but passive audience.</p>
           </details>
           <details class="reveal">
-            <summary>Will I be expected to handle every operational detail myself?</summary>
-            <p>Not by default. The operational split is defined before launch. Dream Travel can support planning and coordination while you stay centered on the experience and your people.</p>
+            <summary>What role am I expected to play as the host?</summary>
+            <p>You are usually the reason people join. Dream Travel can support the planning and travel backbone while you stay centered on the experience, teaching, taste, or access your audience values.</p>
           </details>
           <details class="reveal">
             <summary>How are host benefits or compensation handled?</summary>
-            <p>They are customized per trip. Depending on the trip model and host role, benefits can include hosted travel, compensation, or revenue share. The exact structure is confirmed in writing before promotion begins.</p>
+            <p>They are structured case by case. If host compensation, revenue share, or hosted travel is part of the model, it is defined in writing before promotion begins.</p>
           </details>
           <details class="reveal">
-            <summary>What travel conditions are still finalized later?</summary>
-            <p>Itinerary details, supplier availability, pricing, group minimums, cancellation terms, and booking conditions are confirmed before launch or booking. Guests remain responsible for passport, visa, and insurance needs unless final materials state otherwise.</p>
+            <summary>What gets finalized before the trip is promoted?</summary>
+            <p>Responsibilities, pricing structure, traveler minimums, booking conditions, and the commercial structure are all confirmed before the trip goes public.</p>
           </details>
         </div>
       </div>
@@ -1349,11 +1534,11 @@ section[id],
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Apply to host</div>
-          <h2>If you can gather the right people, we should talk about the right trip.</h2>
-          <p>You do not need a massive audience. You need a clear point of view, real trust with your people, and a trip idea that fits them.</p>
+          <h2>If you can gather the right people, we should talk.</h2>
+          <p>A strong application usually has three things: real audience trust, a clear trip lens, and a host who wants to shape the experience.</p>
         </div>
 
-        <div class="fit-grid">
+        <div class="fit-grid" id="fit">
           <article class="fit-card reveal">
             <strong>Good fit</strong>
             <h3>You already have an engaged audience.</h3>
@@ -1380,32 +1565,32 @@ section[id],
           <article class="apply-photo reveal">
             <div class="overlay">
               <div class="eyebrow" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.12);color:#fff">Next step</div>
-              <h3>Tell us about the people, not just the place.</h3>
-              <p>A strong application explains who your audience is, why the trip fits them, and how involved you want to be.</p>
+              <h3>Tell us about the audience, the lens, and the timing.</h3>
+              <p>The strongest inquiries explain who the trip is for, why it fits, and how visible you want to be as the host.</p>
             </div>
           </article>
 
           <article class="apply-card reveal">
             <div class="eyebrow">What to send</div>
             <h3>Apply to host a trip.</h3>
-            <p>Send your audience, trip concept, rough timing, and how involved you want to be. We will let you know quickly if it looks like a strong fit.</p>
+            <p>Send the core details and we will review whether the concept looks strong enough to develop.</p>
             <ul class="checklist">
-              <li><strong>Community</strong>Who follows you, studies with you, buys from you, or shows up for your events.</li>
-              <li><strong>Trip idea</strong>The travel concept, the type of experience, and why it fits your audience.</li>
-              <li><strong>Timing</strong>Your rough window, plus whether you already have likely travelers in mind.</li>
-              <li><strong>Role</strong>How hands-on you want to be during planning and while the trip is live.</li>
+              <li><strong>Community</strong>Who already shows up for you, and how you currently bring them together.</li>
+              <li><strong>Trip idea</strong>The concept, format, and why it makes sense for your audience.</li>
+              <li><strong>Timing</strong>Your rough window and whether you already have likely travelers in mind.</li>
+              <li><strong>Host role</strong>How hands-on you want to be during planning and during the trip itself.</li>
             </ul>
             <div class="cta-row">
               <a class="btn" href="mailto:clients@dream-travel.net?subject=Apply%20to%20Host%20a%20Trip&body=Name:%0ACommunity:%0ATrip%20idea:%0AType%20of%20experience:%0ATiming:%0ARole:%0A">Apply to Host a Trip</a>
               <a class="btn-secondary" href="tel:+15712068949">Call Dream Travel</a>
             </div>
-            <div class="apply-microcopy">We review fit first. If the concept is aligned, we will schedule a conversation and shape next steps with you.</div>
+            <div class="apply-microcopy">We review fit first. If the concept is aligned, the next step is a direct conversation about structure, scope, and timing.</div>
             <ul class="contact-list">
               <li><strong>Email</strong><a href="mailto:clients@dream-travel.net">clients@dream-travel.net</a></li>
               <li><strong>Instagram</strong><a href="https://www.instagram.com/dreamtravel_adventures/" target="_blank" rel="noopener noreferrer">@dreamtravel_adventures</a></li>
               <li><strong>Privacy</strong>Inquiry details are used only to reply about trip fit and planning next steps.</li>
             </ul>
-            <div class="note">Support scope, pricing structure, host benefits, responsibilities, traveler minimums, and commercial terms are confirmed in writing before promotion begins.</div>
+            <div class="note">Responsibilities, pricing structure, traveler minimums, and the commercial structure are documented before promotion begins.</div>
           </article>
         </div>
       </div>
@@ -1414,8 +1599,11 @@ section[id],
 
   <footer class="site-footer">
     <div class="container row">
-      <div>&copy; 2026 Dream Travel International Corp. Ambassador travel partnerships are reviewed and scoped individually.</div>
-      <div><a href="#why">Who It's For</a> &middot; <a href="#next">Next Steps</a> &middot; <a href="#apply">Apply</a></div>
+      <a class="footer-brand" href="#top" aria-label="Dream Travel home">
+        <img src="logo-footer.webp" alt="Dream Travel">
+      </a>
+      <div>&copy; 2026 Dream Travel International Corp. Hosted group trip partnerships are reviewed and scoped individually.</div>
+      <div><a href="#proof">Why Dream Travel</a> &middot; <a href="#next">Next Steps</a> &middot; <a href="#apply">Apply</a></div>
     </div>
   </footer>
 </div>
