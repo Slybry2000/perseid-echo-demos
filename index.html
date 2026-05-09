@@ -5,11 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dream Travel | Adult Travel, Your Way</title>
 <meta name="description" content="Customized adult travel for clubs, organizations, private groups, and travelers seeking meaningful experiences built around their interests, pace, and style.">
+<link rel="canonical" href="https://dream-travel.net/">
+<link rel="icon" type="image/webp" href="logo-header.webp">
+<meta property="og:title" content="Dream Travel | Adult Travel, Your Way">
+<meta property="og:description" content="Customized adult travel for clubs, organizations, private groups, and travelers seeking meaningful experiences built around their interests, pace, and style.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dream-travel.net/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0d131b;
@@ -18,10 +23,11 @@
   --surface: rgba(255, 248, 239, 0.78);
   --surface-strong: #f0e2d0;
   --ink: #171411;
-  --muted: #6e655d;
+  --ink-strong: #2d251e;
+  --muted: #5a5046;
   --muted-dark: rgba(246, 239, 230, 0.76);
   --gold: #c97a4a;
-  --gold-deep: #b5653c;
+  --gold-deep: #a85a35;
   --sage: #788d7a;
   --line: rgba(23, 20, 17, 0.1);
   --shadow: 0 26px 70px rgba(7, 11, 18, 0.16);
@@ -29,28 +35,55 @@
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Outfit", system-ui, sans-serif;
   --mono: "JetBrains Mono", monospace;
+  --bg-stop-1: #f8f2ea;
+  --bg-stop-2: #eddccc;
+  --bg-stop-3: #f6efe6;
+  --bg-stop-4: #ddd2c4;
+  --bg-stop-5: #15202a;
+  --bg-stop-6: #0c1118;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--sans);
   color: var(--ink);
-  overflow-x: hidden;
   background:
     radial-gradient(circle at 12% 8%, rgba(201, 122, 74, 0.18), transparent 26%),
     radial-gradient(circle at 88% 0%, rgba(120, 141, 122, 0.15), transparent 24%),
-    linear-gradient(180deg, #f8f2ea 0%, #eddccc 35%, #f6efe6 62%, #ddd2c4 76%, #15202a 91%, #0c1118 100%);
+    linear-gradient(180deg, var(--bg-stop-1) 0%, var(--bg-stop-2) 35%, var(--bg-stop-3) 62%, var(--bg-stop-4) 76%, var(--bg-stop-5) 91%, var(--bg-stop-6) 100%);
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 12px 18px;
+  margin: 8px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--cream-strong);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: translateY(-200%);
+  transition: transform 180ms cubic-bezier(.16,1,.3,1);
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 3px;
+}
 .page-shell::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    linear-gradient(rgba(255, 248, 239, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 248, 239, 0.04) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.22), transparent 70%);
 }
@@ -134,6 +167,10 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
+  padding: 12px 6px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 .nav-links a[aria-current="page"] { color: var(--ink); }
 .nav-links a:hover { color: var(--ink); }
@@ -153,7 +190,7 @@ img { display: block; max-width: 100%; }
 }
 .btn {
   background: linear-gradient(135deg, var(--gold), var(--gold-deep));
-  color: #fff;
+  color: var(--cream-strong);
   box-shadow: 0 18px 40px rgba(181, 101, 60, 0.26);
 }
 .btn-secondary {
@@ -163,6 +200,20 @@ img { display: block; max-width: 100%; }
 }
 .btn:hover,
 .btn-secondary:hover { transform: translateY(-2px); }
+.btn:focus-visible,
+.btn-secondary:focus-visible,
+.nav-links a:focus-visible,
+.brand:focus-visible,
+.coverflow-btn:focus-visible {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 3px;
+}
+.coverflow-item:focus-visible,
+.page-cta:focus-visible,
+.footer-links a:focus-visible {
+  outline: 2px solid var(--cream-strong);
+  outline-offset: 3px;
+}
 .hero {
   position: relative;
   padding: 64px 0 110px;
@@ -186,7 +237,7 @@ img { display: block; max-width: 100%; }
   font-size: clamp(22px, 3vw, 30px);
   font-weight: 500;
   line-height: 1.2;
-  color: #2d251e;
+  color: var(--ink-strong);
   max-width: 22ch;
 }
 .hero-body {
@@ -264,9 +315,8 @@ img { display: block; max-width: 100%; }
   padding: 28px;
   border-radius: 28px;
   background:
-    linear-gradient(180deg, rgba(255, 248, 239, 0.92), rgba(239, 224, 205, 0.84)),
+    linear-gradient(180deg, rgba(11, 18, 26, 0.45) 0%, rgba(11, 18, 26, 0.78) 60%, rgba(8, 13, 19, 0.92) 100%),
     url("https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=900&q=80") center/cover no-repeat;
-  background-blend-mode: screen;
   box-shadow: var(--shadow);
   overflow: hidden;
 }
@@ -274,7 +324,7 @@ img { display: block; max-width: 100%; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 248, 239, 0.18), rgba(19, 25, 32, 0.24));
+  background: linear-gradient(135deg, rgba(201, 122, 74, 0.14), transparent 55%);
 }
 .hero-card > * { position: relative; z-index: 1; }
 .hero-card-label {
@@ -290,7 +340,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
-.hero-card h3 {
+.hero-card-title {
   margin-top: 110px;
   font-family: var(--serif);
   font-size: clamp(34px, 5vw, 54px);
@@ -305,28 +355,50 @@ img { display: block; max-width: 100%; }
   max-width: 28ch;
 }
 .trust-band { padding: 0 0 42px; }
-.trust-grid {
+.trust-row__list {
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 28px 56px;
+  padding: 8px 0 0;
+  border-top: 1px solid var(--line);
 }
-.trust-card {
-  padding: 26px;
-  border-radius: 22px;
-  background: rgba(255, 248, 239, 0.7);
-  border: 1px solid rgba(23, 20, 17, 0.08);
-  box-shadow: 0 16px 40px rgba(8, 13, 20, 0.08);
+.trust-row__item {
+  position: relative;
+  padding: 28px 0 4px;
 }
-.trust-card strong {
+.trust-row__item:nth-child(2) { padding-top: 44px; }
+.trust-row__item:nth-child(3) { padding-top: 60px; }
+.trust-row__num {
   display: block;
-  font-size: 14px;
-  letter-spacing: 0.08em;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--gold-deep);
 }
-.trust-card p {
-  margin-top: 10px;
+.trust-row__label {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.trust-row__body {
+  margin-top: 12px;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.75;
+  max-width: 38ch;
+}
+@media (max-width: 980px) {
+  .trust-row__list { grid-template-columns: 1fr; gap: 0; }
+  .trust-row__item,
+  .trust-row__item:nth-child(2),
+  .trust-row__item:nth-child(3) { padding: 24px 0; border-top: 1px solid var(--line); }
+  .trust-row__item:first-child { border-top: 0; }
 }
 .section { padding: 90px 0; }
 .page-grid {
@@ -352,7 +424,7 @@ img { display: block; max-width: 100%; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 34%),
+    linear-gradient(180deg, rgba(255, 248, 239, 0.06), transparent 34%),
     linear-gradient(135deg, rgba(11, 18, 26, 0.32), rgba(10, 15, 21, 0.72));
 }
 .page-cta > * {
@@ -364,7 +436,7 @@ img { display: block; max-width: 100%; }
   width: fit-content;
   padding: 8px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 248, 239, 0.18);
   background: rgba(255, 248, 239, 0.08);
   font-family: var(--mono);
   font-size: 10px;
@@ -409,60 +481,8 @@ img { display: block; max-width: 100%; }
     linear-gradient(135deg, rgba(50, 30, 19, 0.24), rgba(18, 17, 22, 0.74)),
     url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
 }
-.glass-card {
-  padding: 28px;
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(23, 20, 17, 0.1);
-  background: rgba(255, 248, 239, 0.72);
-  box-shadow: 0 18px 44px rgba(7, 11, 18, 0.08);
-}
-.glass-card .card-index {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  color: var(--gold-deep);
-  text-transform: uppercase;
-}
-.glass-card h3 {
-  margin-top: 14px;
-  font-size: clamp(26px, 4vw, 34px);
-  line-height: 1.05;
-}
-.glass-card p {
-  margin-top: 14px;
-  color: var(--muted);
-  line-height: 1.8;
-}
-.glass-card .card-link {
-  display: inline-flex;
-  margin-top: 18px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
-}
 .coverflow-shell {
   margin-top: 34px;
-}
-.coverflow-topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 20px;
-}
-.coverflow-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-}
-.coverflow-caption {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
 }
 .coverflow-stage {
   position: relative;
@@ -487,7 +507,7 @@ img { display: block; max-width: 100%; }
   cursor: pointer;
   transition: transform 0.65s cubic-bezier(.16,1,.3,1), opacity 0.65s cubic-bezier(.16,1,.3,1), filter 0.65s cubic-bezier(.16,1,.3,1), box-shadow 0.65s cubic-bezier(.16,1,.3,1);
   box-shadow: 0 30px 80px rgba(9, 15, 24, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 248, 239, 0.2);
   transform-origin: center center;
 }
 .coverflow-media {
@@ -520,7 +540,7 @@ img { display: block; max-width: 100%; }
   padding: 7px 11px;
   border-radius: 999px;
   background: rgba(255, 248, 239, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 248, 239, 0.22);
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.16em;
@@ -610,7 +630,7 @@ img { display: block; max-width: 100%; }
 }
 .site-footer {
   padding: 34px 0 44px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 248, 239, 0.14);
   background: rgba(9, 13, 19, 0.92);
   color: var(--cream);
 }
@@ -632,11 +652,28 @@ img { display: block; max-width: 100%; }
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  padding: 8px 4px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
-.reveal-card { opacity: 0; transform: translateY(26px); }
+.footer-meta a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.reveal-card {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1);
+}
+.reveal-card.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 1180px) and (min-width: 981px) {
+  .hero { padding: 48px 0 88px; }
+  .section { padding: 72px 0; }
+  .hero-grid { gap: 28px; }
+}
 @media (max-width: 980px) {
   .hero-grid,
-  .trust-grid,
   .page-grid,
   .quote-panel { grid-template-columns: 1fr; }
   .hero-visual { min-height: 420px; }
@@ -652,8 +689,7 @@ img { display: block; max-width: 100%; }
   }
   .brand-name { display: none; }
   .hero { padding-top: 42px; padding-bottom: 78px; }
-  .hero-card h3 { margin-top: 90px; }
-  .coverflow-topline { flex-direction: column; align-items: flex-start; }
+  .hero-card-title { margin-top: 90px; }
   .coverflow-track { min-height: 420px; }
   .coverflow-item {
     width: min(100%, 310px);
@@ -662,14 +698,26 @@ img { display: block; max-width: 100%; }
   .coverflow-copy { min-height: 380px; }
   .coverflow-copy h3 { font-size: 28px; }
 }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-orbit svg { animation: none; }
+  .type-cursor { animation: none; }
+  .coverflow-item { transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <div class="page-shell">
   <header class="site-nav">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Dream Travel home">
-        <img src="logo-header.webp" alt="Dream Travel logo">
+        <img src="logo-header.webp" alt="Dream Travel">
         <span class="brand-name">Dream Travel</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
@@ -680,7 +728,7 @@ img { display: block; max-width: 100%; }
       </nav>
     </div>
   </header>
-  <main>
+  <main id="main-content">
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -704,26 +752,31 @@ img { display: block; max-width: 100%; }
           </div>
           <article class="hero-card reveal-card">
             <span class="hero-card-label">Dedicated personal service</span>
-            <h3>Meaningful travel, built around your group.</h3>
+            <p class="hero-card-title">Meaningful travel, built around your group.</p>
             <p>Whether it is a wine weekend, a city stay, or a regional escape, our well-planned journeys are designed to feel seamless, personal, and memorable from start to finish.</p>
           </article>
         </div>
       </div>
     </section>
     <section class="trust-band">
-      <div class="container trust-grid">
-        <article class="trust-card reveal-card">
-          <strong>Fully customized itineraries</strong>
-          <p>Every trip is shaped around your destination interests, preferred pace, and the type of shared experience your group wants to have.</p>
-        </article>
-        <article class="trust-card reveal-card">
-          <strong>Professional coordination</strong>
-          <p>We handle the planning details, supplier communication, logistics, and structure that turn a great idea into an easy trip to join.</p>
-        </article>
-        <article class="trust-card reveal-card">
-          <strong>Dedicated personal service</strong>
-          <p>From the first conversation to the final itinerary, your group has a travel partner focused on making the experience feel thoughtful and well supported.</p>
-        </article>
+      <div class="container trust-row">
+        <ol class="trust-row__list reveal-card">
+          <li class="trust-row__item">
+            <span class="trust-row__num">01</span>
+            <strong class="trust-row__label">Fully customized itineraries</strong>
+            <p class="trust-row__body">Every trip is shaped around your destination interests, preferred pace, and the type of shared experience your group wants to have.</p>
+          </li>
+          <li class="trust-row__item">
+            <span class="trust-row__num">02</span>
+            <strong class="trust-row__label">Professional coordination</strong>
+            <p class="trust-row__body">We handle the planning details, supplier communication, logistics, and structure that turn a great idea into an easy trip to join.</p>
+          </li>
+          <li class="trust-row__item">
+            <span class="trust-row__num">03</span>
+            <strong class="trust-row__label">Dedicated personal service</strong>
+            <p class="trust-row__body">From the first conversation to the final itinerary, your group has a travel partner focused on making the experience feel thoughtful and well supported.</p>
+          </li>
+        </ol>
       </div>
     </section>
     <section class="section">
@@ -734,15 +787,13 @@ img { display: block; max-width: 100%; }
           <p>Some travelers want a private custom group tour, some want a purpose-driven trip that gives back, and others want a themed small-group departure with fixed dates. Dream Travel supports each path with the same care and coordination.</p>
         </div>
         <div class="coverflow-shell reveal-card">
-          <div class="coverflow-topline">
-          </div>
           <div class="coverflow-stage">
-            <div class="coverflow-track" id="homeCoverflow" aria-live="polite"></div>
+            <div class="coverflow-track" id="homeCoverflow"></div>
           </div>
-          <div class="coverflow-nav" aria-label="Carousel navigation">
+          <nav class="coverflow-nav" aria-label="Carousel">
             <button class="coverflow-btn" id="coverflowPrev" type="button" aria-label="Previous card">&larr;</button>
             <button class="coverflow-btn" id="coverflowNext" type="button" aria-label="Next card">&rarr;</button>
-          </div>
+          </nav>
           <div class="coverflow-dots" id="coverflowDots" aria-hidden="true"></div>
         </div>
       </div>
@@ -763,7 +814,7 @@ img { display: block; max-width: 100%; }
         <div class="section-head">
           <span class="eyebrow">Discover more</span>
           <h2>See what's possible, then start planning.</h2>
-          <p></p>
+          <p>Each path starts the same way: a real conversation about your group, your destination, and the kind of trip that fits. From there we shape a private custom tour, a small-group departure with set dates, or whatever structure suits your people best.</p>
         </div>
         <div class="page-grid">
           <a class="page-cta page-cta-tours reveal-card" href="experiences.html">
@@ -789,13 +840,13 @@ img { display: block; max-width: 100%; }
         <a href="experiences.html">Private &amp; Custom Tours</a>
         <a href="contact.html">Start Planning</a>
       </div>
-      <div class="footer-meta">Copyright © 2026 | clients@dream-travel.net | 571 206 8949</div>
+      <div class="footer-meta">Copyright © 2026 | <a href="mailto:clients@dream-travel.net">clients@dream-travel.net</a> | <a href="tel:+15712068949">571 206 8949</a></div>
     </div>
   </footer>
 </div>
 <script>
 (function () {
-  gsap.registerPlugin(ScrollTrigger);
+  var prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var phrases = [
     "Private journeys.",
     "Small-group trips.",
@@ -803,10 +854,16 @@ img { display: block; max-width: 100%; }
   ];
   var typeEl = document.getElementById("heroType");
   if (typeEl) {
+    if (prefersReducedMotion) {
+      typeEl.textContent = phrases[0];
+    } else {
     var phraseIndex = 0;
     var charIndex = 0;
     var deleting = false;
+    var typeRunning = false;
     function tick() {
+      if (document.hidden) { typeRunning = false; return; }
+      typeRunning = true;
       var phrase = phrases[phraseIndex];
       if (!deleting) {
         charIndex += 1;
@@ -828,7 +885,11 @@ img { display: block; max-width: 100%; }
       typeEl.innerHTML = phrase.substring(0, charIndex) + '<span class="type-cursor"></span>';
       setTimeout(tick, deleting ? 28 : 52);
     }
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden && !typeRunning) tick();
+    });
     tick();
+    }
   }
   var coverflowItems = [
     {
@@ -908,6 +969,7 @@ img { display: block; max-width: 100%; }
         slides[i].style.opacity = String(opacity);
         slides[i].style.filter = "brightness(" + brightness + ")";
         slides[i].setAttribute("aria-hidden", absOffset > 2 ? "true" : "false");
+        slides[i].setAttribute("tabindex", absOffset > 2 ? "-1" : "0");
         dots[i].classList.toggle("is-active", i === coverflowCurrent);
       }
     }
@@ -924,21 +986,34 @@ img { display: block; max-width: 100%; }
         renderCoverflow();
       });
     }
+    coverflowTrack.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        coverflowCurrent = Math.max(0, coverflowCurrent - 1);
+        renderCoverflow();
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        coverflowCurrent = Math.min(coverflowItems.length - 1, coverflowCurrent + 1);
+        renderCoverflow();
+      }
+    });
     window.addEventListener("resize", renderCoverflow);
     renderCoverflow();
   }
-  gsap.utils.toArray(".reveal-card").forEach(function (card) {
-    gsap.to(card, {
-      opacity: 1,
-      y: 0,
-      duration: 0.9,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 82%"
-      }
-    });
-  });
+  var revealEls = document.querySelectorAll(".reveal-card");
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    revealEls.forEach(function (card) { card.classList.add("is-revealed"); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -18% 0px" });
+    revealEls.forEach(function (card) { revealObserver.observe(card); });
+  }
 })();
 </script>
 </body>
