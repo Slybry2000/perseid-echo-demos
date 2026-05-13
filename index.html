@@ -1,1020 +1,197 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dream Travel | Adult Travel, Your Way</title>
-<meta name="description" content="Customized adult travel for clubs, organizations, private groups, and travelers seeking meaningful experiences built around their interests, pace, and style.">
-<link rel="canonical" href="https://dream-travel.net/">
-<link rel="icon" type="image/webp" href="logo-header.webp">
-<meta property="og:title" content="Dream Travel | Adult Travel, Your Way">
-<meta property="og:description" content="Customized adult travel for clubs, organizations, private groups, and travelers seeking meaningful experiences built around their interests, pace, and style.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://dream-travel.net/">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #0d131b;
-  --cream: #f6efe6;
-  --cream-strong: #fff8ef;
-  --surface: rgba(255, 248, 239, 0.78);
-  --surface-strong: #f0e2d0;
-  --ink: #171411;
-  --ink-strong: #2d251e;
-  --muted: #5a5046;
-  --muted-dark: rgba(246, 239, 230, 0.76);
-  --gold: #c97a4a;
-  --gold-deep: #a85a35;
-  --sage: #788d7a;
-  --line: rgba(23, 20, 17, 0.1);
-  --shadow: 0 26px 70px rgba(7, 11, 18, 0.16);
-  --radius-xl: 28px;
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Outfit", system-ui, sans-serif;
-  --mono: "JetBrains Mono", monospace;
-  --bg-stop-1: #f8f2ea;
-  --bg-stop-2: #eddccc;
-  --bg-stop-3: #f6efe6;
-  --bg-stop-4: #ddd2c4;
-  --bg-stop-5: #15202a;
-  --bg-stop-6: #0c1118;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--sans);
-  color: var(--ink);
-  background:
-    radial-gradient(circle at 12% 8%, rgba(201, 122, 74, 0.18), transparent 26%),
-    radial-gradient(circle at 88% 0%, rgba(120, 141, 122, 0.15), transparent 24%),
-    linear-gradient(180deg, var(--bg-stop-1) 0%, var(--bg-stop-2) 35%, var(--bg-stop-3) 62%, var(--bg-stop-4) 76%, var(--bg-stop-5) 91%, var(--bg-stop-6) 100%);
-}
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-.skip-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  padding: 12px 18px;
-  margin: 8px;
-  border-radius: 8px;
-  background: var(--ink);
-  color: var(--cream-strong);
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transform: translateY(-200%);
-  transition: transform 180ms cubic-bezier(.16,1,.3,1);
-}
-.skip-link:focus {
-  transform: translateY(0);
-  outline: 2px solid var(--gold-deep);
-  outline-offset: 3px;
-}
-.page-shell::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 248, 239, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 248, 239, 0.04) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.22), transparent 70%);
-}
-.container { width: min(1160px, calc(100vw - 36px)); margin: 0 auto; }
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 12px;
-  border: 1px solid rgba(201, 122, 74, 0.24);
-  border-radius: 999px;
-  background: rgba(255, 248, 239, 0.7);
-  color: var(--gold-deep);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.eyebrow::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), var(--sage));
-}
-.section-head { max-width: 700px; }
-.section-head h2 {
-  margin-top: 16px;
-  font-family: var(--serif);
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: 0.94;
-  letter-spacing: -0.04em;
-}
-.section-head p {
-  margin-top: 18px;
-  font-size: 17px;
-  line-height: 1.75;
-  color: var(--muted);
-}
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  padding: 10px 0;
-  background: rgba(247, 240, 231, 0.82);
-  border-bottom: 1px solid rgba(23, 20, 17, 0.08);
-  backdrop-filter: blur(18px);
-}
-.site-nav .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
-.brand img {
-  width: clamp(48px, 4.6vw, 64px);
-  height: auto;
-}
-.brand-name {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-.nav-links a {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 12px 6px;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-}
-.nav-links a[aria-current="page"] { color: var(--ink); }
-.nav-links a:hover { color: var(--ink); }
-.btn,
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 15px 24px;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-.btn {
-  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
-  color: var(--cream-strong);
-  box-shadow: 0 18px 40px rgba(181, 101, 60, 0.26);
-}
-.btn-secondary {
-  background: rgba(255, 248, 239, 0.78);
-  color: var(--ink);
-  border-color: rgba(23, 20, 17, 0.12);
-}
-.btn:hover,
-.btn-secondary:hover { transform: translateY(-2px); }
-.btn:focus-visible,
-.btn-secondary:focus-visible,
-.nav-links a:focus-visible,
-.brand:focus-visible,
-.coverflow-btn:focus-visible {
-  outline: 2px solid var(--gold-deep);
-  outline-offset: 3px;
-}
-.coverflow-item:focus-visible,
-.page-cta:focus-visible,
-.footer-links a:focus-visible {
-  outline: 2px solid var(--cream-strong);
-  outline-offset: 3px;
-}
-.hero {
-  position: relative;
-  padding: 64px 0 110px;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-  gap: 36px;
-  align-items: center;
-}
-.hero-copy h1 {
-  margin-top: 18px;
-  font-family: var(--serif);
-  font-size: clamp(58px, 8vw, 108px);
-  line-height: 0.9;
-  letter-spacing: -0.05em;
-  max-width: 11ch;
-}
-.hero-subhead {
-  margin-top: 20px;
-  font-size: clamp(22px, 3vw, 30px);
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--ink-strong);
-  max-width: 22ch;
-}
-.hero-body {
-  margin-top: 18px;
-  font-size: 18px;
-  line-height: 1.78;
-  color: var(--muted);
-  max-width: 58ch;
-}
-.hero-type {
-  margin-top: 20px;
-  min-height: 28px;
-  color: var(--gold-deep);
-  font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.type-cursor {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  margin-left: 4px;
-  background: currentColor;
-  vertical-align: text-bottom;
-  animation: blink 0.7s step-end infinite;
-}
-@keyframes blink {
-  50% { opacity: 0; }
-}
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 30px;
-}
-.hero-note {
-  margin-top: 22px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
-}
-.hero-visual {
-  position: relative;
-  min-height: 520px;
-  display: grid;
-  place-items: center;
-}
-.hero-orbit {
-  position: absolute;
-  inset: 50%;
-  width: min(92vw, 380px);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-}
-.hero-orbit svg {
-  width: 100%;
-  height: 100%;
-  animation: orbit 26s linear infinite;
-  filter: drop-shadow(0 18px 44px rgba(9, 16, 24, 0.14));
-}
-.hero-orbit text {
-  fill: rgba(23, 20, 17, 0.78);
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-}
-@keyframes orbit {
-  to { transform: rotate(360deg); }
-}
-.hero-card {
-  position: relative;
-  width: min(100%, 380px);
-  padding: 28px;
-  border-radius: 28px;
-  background:
-    linear-gradient(180deg, rgba(11, 18, 26, 0.45) 0%, rgba(11, 18, 26, 0.78) 60%, rgba(8, 13, 19, 0.92) 100%),
-    url("https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=900&q=80") center/cover no-repeat;
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-.hero-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(201, 122, 74, 0.14), transparent 55%);
-}
-.hero-card > * { position: relative; z-index: 1; }
-.hero-card-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(23, 20, 17, 0.66);
-  color: var(--cream);
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.hero-card-title {
-  margin-top: 110px;
-  font-family: var(--serif);
-  font-size: clamp(34px, 5vw, 54px);
-  line-height: 0.92;
-  color: var(--cream);
-  letter-spacing: -0.04em;
-}
-.hero-card p {
-  margin-top: 12px;
-  color: rgba(246, 239, 230, 0.86);
-  line-height: 1.7;
-  max-width: 28ch;
-}
-.trust-band { padding: 0 0 42px; }
-.trust-row__list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px 56px;
-  padding: 8px 0 0;
-  border-top: 1px solid var(--line);
-}
-.trust-row__item {
-  position: relative;
-  padding: 28px 0 4px;
-}
-.trust-row__item:nth-child(2) { padding-top: 44px; }
-.trust-row__item:nth-child(3) { padding-top: 60px; }
-.trust-row__num {
-  display: block;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-}
-.trust-row__label {
-  display: block;
-  margin-top: 14px;
-  font-family: var(--serif);
-  font-size: clamp(22px, 2.4vw, 28px);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: var(--ink);
-}
-.trust-row__body {
-  margin-top: 12px;
-  color: var(--muted);
-  line-height: 1.75;
-  max-width: 38ch;
-}
-@media (max-width: 980px) {
-  .trust-row__list { grid-template-columns: 1fr; gap: 0; }
-  .trust-row__item,
-  .trust-row__item:nth-child(2),
-  .trust-row__item:nth-child(3) { padding: 24px 0; border-top: 1px solid var(--line); }
-  .trust-row__item:first-child { border-top: 0; }
-}
-.section { padding: 90px 0; }
-.page-grid {
-  display: grid;
-  gap: 18px;
-  margin-top: 32px;
-}
-.page-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.page-cta {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 320px;
-  padding: 34px;
-  border-radius: 32px;
-  overflow: hidden;
-  color: var(--cream);
-  box-shadow: 0 28px 70px rgba(8, 12, 18, 0.2);
-}
-.page-cta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 248, 239, 0.06), transparent 34%),
-    linear-gradient(135deg, rgba(11, 18, 26, 0.32), rgba(10, 15, 21, 0.72));
-}
-.page-cta > * {
-  position: relative;
-  z-index: 1;
-}
-.page-cta-kicker {
-  display: inline-flex;
-  width: fit-content;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 248, 239, 0.18);
-  background: rgba(255, 248, 239, 0.08);
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.page-cta h3 {
-  margin-top: 18px;
-  font-family: var(--serif);
-  font-size: clamp(40px, 5vw, 62px);
-  line-height: 0.92;
-  letter-spacing: -0.04em;
-  max-width: 11ch;
-}
-.page-cta p {
-  margin-top: 14px;
-  max-width: 42ch;
-  color: rgba(246, 239, 230, 0.9);
-  line-height: 1.82;
-}
-.page-cta-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 26px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.page-cta-link::after {
-  content: "\2192";
-  font-size: 16px;
-}
-.page-cta-tours {
-  background:
-    linear-gradient(135deg, rgba(22, 31, 40, 0.24), rgba(12, 17, 24, 0.74)),
-    url("https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
-}
-.page-cta-plan {
-  background:
-    linear-gradient(135deg, rgba(50, 30, 19, 0.24), rgba(18, 17, 22, 0.74)),
-    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
-}
-.coverflow-shell {
-  margin-top: 34px;
-}
-.coverflow-stage {
-  position: relative;
-  padding: 18px 0 14px;
-  perspective: 1400px;
-  overflow: hidden;
-}
-.coverflow-track {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 520px;
-  transform-style: preserve-3d;
-}
-.coverflow-item {
-  position: absolute;
-  width: min(100%, 360px);
-  min-height: 460px;
-  border-radius: 30px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.65s cubic-bezier(.16,1,.3,1), opacity 0.65s cubic-bezier(.16,1,.3,1), filter 0.65s cubic-bezier(.16,1,.3,1), box-shadow 0.65s cubic-bezier(.16,1,.3,1);
-  box-shadow: 0 30px 80px rgba(9, 15, 24, 0.18);
-  border: 1px solid rgba(255, 248, 239, 0.2);
-  transform-origin: center center;
-}
-.coverflow-media {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-}
-.coverflow-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(11, 16, 24, 0.08) 0%, rgba(13, 20, 27, 0.16) 28%, rgba(13, 20, 27, 0.85) 100%),
-    linear-gradient(135deg, rgba(201, 122, 74, 0.18), rgba(15, 24, 32, 0.1));
-}
-.coverflow-copy {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 460px;
-  padding: 30px 28px;
-  color: var(--cream);
-}
-.coverflow-index {
-  display: inline-flex;
-  width: fit-content;
-  padding: 7px 11px;
-  border-radius: 999px;
-  background: rgba(255, 248, 239, 0.14);
-  border: 1px solid rgba(255, 248, 239, 0.22);
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.coverflow-copy h3 {
-  margin-top: 18px;
-  font-size: clamp(28px, 4vw, 38px);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
-}
-.coverflow-copy p {
-  margin-top: 14px;
-  color: rgba(246, 239, 230, 0.9);
-  line-height: 1.78;
-}
-.coverflow-nav {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 20px;
-}
-.coverflow-btn {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 1px solid rgba(23, 20, 17, 0.12);
-  background: rgba(255, 248, 239, 0.72);
-  color: var(--ink);
-  font-size: 18px;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-}
-.coverflow-btn:hover {
-  transform: translateY(-2px);
-  border-color: rgba(23, 20, 17, 0.22);
-  background: rgba(255, 248, 239, 0.92);
-}
-.coverflow-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 16px;
-}
-.coverflow-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgba(23, 20, 17, 0.2);
-  transition: transform 180ms ease, background 180ms ease;
-}
-.coverflow-dot.is-active {
-  transform: scale(1.25);
-  background: var(--gold-deep);
-}
-.quote-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 24px;
-  align-items: end;
-  padding: 34px;
-  border-radius: 30px;
-  background:
-    linear-gradient(135deg, rgba(25, 38, 34, 0.48), rgba(16, 26, 30, 0.62)),
-    url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=80") center 28%/cover no-repeat;
-  color: var(--cream);
-  box-shadow: 0 34px 90px rgba(10, 15, 24, 0.24);
-}
-.quote-panel blockquote {
-  font-family: var(--serif);
-  font-size: clamp(34px, 5vw, 58px);
-  line-height: 0.96;
-  letter-spacing: -0.04em;
-  max-width: 12ch;
-}
-.quote-panel p {
-  margin-top: 14px;
-  color: var(--muted-dark);
-  line-height: 1.75;
-  max-width: 50ch;
-}
-.quote-panel footer {
-  color: rgba(246, 239, 230, 0.72);
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.site-footer {
-  padding: 34px 0 44px;
-  border-top: 1px solid rgba(255, 248, 239, 0.14);
-  background: rgba(9, 13, 19, 0.92);
-  color: var(--cream);
-}
-.site-footer .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-.footer-links {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.footer-links a,
-.footer-meta {
-  color: rgba(246, 239, 230, 0.72);
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 8px 4px;
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-}
-.footer-meta a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.reveal-card {
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1);
-}
-.reveal-card.is-revealed {
-  opacity: 1;
-  transform: none;
-}
-@media (max-width: 1180px) and (min-width: 981px) {
-  .hero { padding: 48px 0 88px; }
-  .section { padding: 72px 0; }
-  .hero-grid { gap: 28px; }
-}
-@media (max-width: 980px) {
-  .hero-grid,
-  .page-grid,
-  .quote-panel { grid-template-columns: 1fr; }
-  .hero-visual { min-height: 420px; }
-  .coverflow-track { min-height: 460px; }
-  .coverflow-item,
-  .coverflow-copy { min-height: 410px; }
-}
-@media (max-width: 760px) {
-  .site-nav .container,
-  .site-footer .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .brand-name { display: none; }
-  .hero { padding-top: 42px; padding-bottom: 78px; }
-  .hero-card-title { margin-top: 90px; }
-  .coverflow-track { min-height: 420px; }
-  .coverflow-item {
-    width: min(100%, 310px);
-    min-height: 380px;
-  }
-  .coverflow-copy { min-height: 380px; }
-  .coverflow-copy h3 { font-size: 28px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .hero-orbit svg { animation: none; }
-  .type-cursor { animation: none; }
-  .coverflow-item { transition: none; }
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perseid Echo — Demos</title>
+  <meta name="description" content="An index of demo sites by Perseid Echo." />
+  <meta name="theme-color" content="#0F1F15" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --moss: #0F1F15;
+      --moss-deep: #071510;
+      --cream: #FAF8F2;
+      --gold: #C9A227;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background: var(--moss);
+      color: var(--cream);
+      font-family: 'EB Garamond', Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      min-height: 100svh;
+    }
+    ::selection { background: var(--gold); color: var(--moss-deep); }
+
+    .page {
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: clamp(32px, 5vw, 72px);
+      gap: clamp(48px, 8vh, 96px);
+    }
+
+    .chrome {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .wordmark {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .index-tag {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 242, 0.55);
+    }
+
+    .main {
+      display: grid;
+      align-content: center;
+      gap: clamp(48px, 6vh, 80px);
+      max-width: 880px;
+    }
+
+    .lede {
+      font-weight: 500;
+      font-size: clamp(40px, 5.6vw, 76px);
+      line-height: 1.04;
+      letter-spacing: -0.015em;
+      max-width: 18ch;
+    }
+    .lede em {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .demos {
+      list-style: none;
+      border-top: 1px solid rgba(250, 248, 242, 0.18);
+    }
+    .demos li {
+      border-bottom: 1px solid rgba(250, 248, 242, 0.12);
+    }
+    .demos a {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      column-gap: 24px;
+      align-items: baseline;
+      padding: 28px 0;
+      text-decoration: none;
+      color: var(--cream);
+      transition: color 200ms ease, transform 220ms ease;
+    }
+    .demos a:hover,
+    .demos a:focus-visible {
+      color: var(--gold);
+      outline: none;
+    }
+    .demos a:hover .arrow,
+    .demos a:focus-visible .arrow {
+      transform: translateX(6px);
+      color: var(--gold);
+    }
+
+    .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      padding-top: 12px;
+    }
+    .demo-name {
+      font-weight: 500;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    .demo-sub {
+      display: block;
+      margin-top: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 242, 0.55);
+    }
+    .arrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: rgba(250, 248, 242, 0.55);
+      transition: transform 220ms ease, color 220ms ease;
+      align-self: center;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 242, 0.55);
+    }
+
+    @media (max-width: 600px) {
+      .demos a { grid-template-columns: 40px minmax(0, 1fr) auto; column-gap: 16px; }
+      .footer { flex-direction: column; gap: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
-<div class="page-shell">
-  <header class="site-nav">
-    <div class="container">
-      <a class="brand" href="index.html" aria-label="Dream Travel home">
-        <img src="logo-header.webp" alt="Dream Travel">
-        <span class="brand-name">Dream Travel</span>
-      </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="experiences.html">Private &amp; Custom Tours</a>
-        <a href="contact.html">Start Planning</a>
-        <a class="btn" href="contact.html">Contact Us</a>
-      </nav>
-    </div>
-  </header>
-  <main id="main-content">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Adult travel, your way</span>
-          <h1>Travel Together, Discover More</h1>
-          <p class="hero-subhead">Designed for clubs or organizations seeking an unforgettable shared experience.</p>
-          <p class="hero-body">We design customized travel experiences that bring people closer together. Travel is not one-size-fits-all, and adult travel should not be either. Whether you are dreaming of a private tailor-made journey, joining a small-group departure with set dates, or planning a getaway with family or friends, Dream Travel builds the experience around your interests, pace, and style.</p>
-          <div class="hero-type" id="heroType" aria-live="polite"></div>
-          <div class="hero-actions">
-            <a class="btn" href="experiences.html">See What We Do</a>
-            <a class="btn-secondary" href="contact.html">Start Planning</a>
-          </div>
-          <p class="hero-note">From culinary and wine regions to culture, history, and nature, you choose how you travel and we take care of the rest.</p>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-orbit" aria-hidden="true">
-            <svg viewBox="0 0 300 300">
-              <defs><path id="heroCircle" d="M150,150 m-122,0 a122,122 0 1,1 244,0 a122,122 0 1,1 -244,0"></path></defs>
-              <text><textPath href="#heroCircle">ADULT TRAVEL - PRIVATE GROUPS - TRAVEL WITH PURPOSE - DREAM TRAVEL - ADULT TRAVEL - PRIVATE GROUPS - TRAVEL WITH PURPOSE - DREAM TRAVEL - </textPath></text>
-            </svg>
-          </div>
-          <article class="hero-card reveal-card">
-            <span class="hero-card-label">Dedicated personal service</span>
-            <p class="hero-card-title">Meaningful travel, built around your group.</p>
-            <p>Whether it is a wine weekend, a city stay, or a regional escape, our well-planned journeys are designed to feel seamless, personal, and memorable from start to finish.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-    <section class="trust-band">
-      <div class="container trust-row">
-        <ol class="trust-row__list reveal-card">
-          <li class="trust-row__item">
-            <span class="trust-row__num">01</span>
-            <strong class="trust-row__label">Fully customized itineraries</strong>
-            <p class="trust-row__body">Every trip is shaped around your destination interests, preferred pace, and the type of shared experience your group wants to have.</p>
-          </li>
-          <li class="trust-row__item">
-            <span class="trust-row__num">02</span>
-            <strong class="trust-row__label">Professional coordination</strong>
-            <p class="trust-row__body">We handle the planning details, supplier communication, logistics, and structure that turn a great idea into an easy trip to join.</p>
-          </li>
-          <li class="trust-row__item">
-            <span class="trust-row__num">03</span>
-            <strong class="trust-row__label">Dedicated personal service</strong>
-            <p class="trust-row__body">From the first conversation to the final itinerary, your group has a travel partner focused on making the experience feel thoughtful and well supported.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Travel together, discover more</span>
-          <h2>Choose the kind of adult travel experience that fits your group.</h2>
-          <p>Some travelers want a private custom group tour, some want a purpose-driven trip that gives back, and others want a themed small-group departure with fixed dates. Dream Travel supports each path with the same care and coordination.</p>
-        </div>
-        <div class="coverflow-shell reveal-card">
-          <div class="coverflow-stage">
-            <div class="coverflow-track" id="homeCoverflow"></div>
-          </div>
-          <nav class="coverflow-nav" aria-label="Carousel">
-            <button class="coverflow-btn" id="coverflowPrev" type="button" aria-label="Previous card">&larr;</button>
-            <button class="coverflow-btn" id="coverflowNext" type="button" aria-label="Next card">&rarr;</button>
-          </nav>
-          <div class="coverflow-dots" id="coverflowDots" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <article class="quote-panel reveal-card">
-          <div>
-            <blockquote>"You focus on your people. We take care of the trip."</blockquote>
-            <p>That same approach carries through the next pages, where Dream Travel shows how private custom tours are structured and how a group can start planning with confidence.</p>
-          </div>
-          <footer>Dream Travel</footer>
-        </article>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Discover more</span>
-          <h2>See what's possible, then start planning.</h2>
-          <p>Each path starts the same way: a real conversation about your group, your destination, and the kind of trip that fits. From there we shape a private custom tour, a small-group departure with set dates, or whatever structure suits your people best.</p>
-        </div>
-        <div class="page-grid">
-          <a class="page-cta page-cta-tours reveal-card" href="experiences.html">
-            <span class="page-cta-kicker">Page two</span>
-            <h3>Private &amp; Custom Group Tours</h3>
-            <p>Explore who these tours are for, what Dream Travel handles, and the kinds of group journeys we can build together.</p>
-            <span class="page-cta-link">View More</span>
+  <div class="page">
+    <header class="chrome">
+      <span class="wordmark">Perseid Echo</span>
+      <span class="index-tag">INDEX / DEMOS</span>
+    </header>
+
+    <main class="main">
+      <h1 class="lede">A small index of <em>demo</em> sites.</h1>
+
+      <ol class="demos" role="list">
+        <li>
+          <a href="dream-travel/">
+            <span class="num">01</span>
+            <span>
+              <span class="demo-name">Dream Travel</span>
+              <span class="demo-sub">Boutique travel concierge</span>
+            </span>
+            <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
-          <a class="page-cta page-cta-plan reveal-card" href="contact.html">
-            <span class="page-cta-kicker">Page three</span>
-            <h3>Start Planning Your Trip</h3>
-            <p>Share your group's travel goals, ask practical questions, and move from idea to itinerary with direct support.</p>
-            <span class="page-cta-link">Start Planning</span>
+        </li>
+        <li>
+          <a href="riley-lawns/">
+            <span class="num">02</span>
+            <span>
+              <span class="demo-name">Riley Lawns</span>
+              <span class="demo-sub">Premium lawn care &middot; Seattle</span>
+            </span>
+            <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="experiences.html">Private &amp; Custom Tours</a>
-        <a href="contact.html">Start Planning</a>
-      </div>
-      <div class="footer-meta">Copyright © 2026 | <a href="mailto:clients@dream-travel.net">clients@dream-travel.net</a> | <a href="tel:+15712068949">571 206 8949</a></div>
-    </div>
-  </footer>
-</div>
-<script>
-(function () {
-  var prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var phrases = [
-    "Private journeys.",
-    "Small-group trips.",
-    "Travel with purpose."
-  ];
-  var typeEl = document.getElementById("heroType");
-  if (typeEl) {
-    if (prefersReducedMotion) {
-      typeEl.textContent = phrases[0];
-    } else {
-    var phraseIndex = 0;
-    var charIndex = 0;
-    var deleting = false;
-    var typeRunning = false;
-    function tick() {
-      if (document.hidden) { typeRunning = false; return; }
-      typeRunning = true;
-      var phrase = phrases[phraseIndex];
-      if (!deleting) {
-        charIndex += 1;
-        if (charIndex >= phrase.length) {
-          typeEl.innerHTML = phrase + '<span class="type-cursor"></span>';
-          deleting = true;
-          setTimeout(tick, 1500);
-          return;
-        }
-      } else {
-        charIndex -= 1;
-        if (charIndex <= 0) {
-          deleting = false;
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-          setTimeout(tick, 220);
-          return;
-        }
-      }
-      typeEl.innerHTML = phrase.substring(0, charIndex) + '<span class="type-cursor"></span>';
-      setTimeout(tick, deleting ? 28 : 52);
-    }
-    document.addEventListener("visibilitychange", function () {
-      if (!document.hidden && !typeRunning) tick();
-    });
-    tick();
-    }
-  }
-  var coverflowItems = [
-    {
-      index: "01",
-      title: "Private & Custom Group Tours",
-      description: "Perfect for long weekends, special celebrations, regional escapes, and shared journeys designed around your people, your theme, and your preferred style of travel.",
-      image: "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      index: "02",
-      title: "Travel With Purpose",
-      description: "Bring people together, travel to inspiring destinations, and support a school, community, or organization through Dream Travel's giving-back program.",
-      image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      index: "03",
-      title: "Join One of Our Trips",
-      description: "Travel with like-minded people on thoughtfully curated small-group journeys with fixed dates and clear themes such as culinary, cultural, art-focused, or experiential travel.",
-      image: "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      index: "04",
-      title: "Host Your Own Tours",
-      description: "If you have a loyal audience, professional network, club, or shared-passion community, we can help you travel with them under your own name while we manage the logistics.",
-      image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80"
-    }
-  ];
-  var coverflowTrack = document.getElementById("homeCoverflow");
-  var coverflowDots = document.getElementById("coverflowDots");
-  var coverflowCurrent = 0;
-  if (coverflowTrack && coverflowDots) {
-    coverflowItems.forEach(function (item, index) {
-      var slide = document.createElement("article");
-      slide.className = "coverflow-item";
-      slide.setAttribute("role", "button");
-      slide.setAttribute("tabindex", "0");
-      slide.setAttribute("aria-label", item.title);
-      slide.innerHTML =
-        '<div class="coverflow-media" style="background-image:url(\'' + item.image + '\')"></div>' +
-        '<div class="coverflow-copy">' +
-        '<span class="coverflow-index">' + item.index + "</span>" +
-        "<h3>" + item.title + "</h3>" +
-        "<p>" + item.description + "</p>" +
-        "</div>";
-      slide.addEventListener("click", function () {
-        coverflowCurrent = index;
-        renderCoverflow();
-      });
-      slide.addEventListener("keydown", function (event) {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          coverflowCurrent = index;
-          renderCoverflow();
-        }
-      });
-      coverflowTrack.appendChild(slide);
+        </li>
+      </ol>
+    </main>
 
-      var dot = document.createElement("span");
-      dot.className = "coverflow-dot";
-      coverflowDots.appendChild(dot);
-    });
-
-    function renderCoverflow() {
-      var slides = coverflowTrack.children;
-      var dots = coverflowDots.children;
-      var compact = window.innerWidth <= 760;
-      for (var i = 0; i < slides.length; i += 1) {
-        var offset = i - coverflowCurrent;
-        var absOffset = Math.abs(offset);
-        var translateX = compact ? offset * 160 : offset * 220;
-        var rotateY = compact ? (offset < 0 ? 32 : offset > 0 ? -32 : 0) : (offset < 0 ? 42 : offset > 0 ? -42 : 0);
-        var scale = absOffset === 0 ? 1 : compact ? 0.82 : 0.84;
-        var opacity = absOffset > 2 ? 0 : 1 - absOffset * 0.22;
-        var brightness = absOffset === 0 ? 1 : 0.64;
-        slides[i].style.transform = "translateX(" + translateX + "px) rotateY(" + rotateY + "deg) scale(" + scale + ")";
-        slides[i].style.zIndex = String(20 - absOffset);
-        slides[i].style.opacity = String(opacity);
-        slides[i].style.filter = "brightness(" + brightness + ")";
-        slides[i].setAttribute("aria-hidden", absOffset > 2 ? "true" : "false");
-        slides[i].setAttribute("tabindex", absOffset > 2 ? "-1" : "0");
-        dots[i].classList.toggle("is-active", i === coverflowCurrent);
-      }
-    }
-
-    var prevBtn = document.getElementById("coverflowPrev");
-    var nextBtn = document.getElementById("coverflowNext");
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener("click", function () {
-        coverflowCurrent = Math.max(0, coverflowCurrent - 1);
-        renderCoverflow();
-      });
-      nextBtn.addEventListener("click", function () {
-        coverflowCurrent = Math.min(coverflowItems.length - 1, coverflowCurrent + 1);
-        renderCoverflow();
-      });
-    }
-    coverflowTrack.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        coverflowCurrent = Math.max(0, coverflowCurrent - 1);
-        renderCoverflow();
-      } else if (event.key === "ArrowRight") {
-        event.preventDefault();
-        coverflowCurrent = Math.min(coverflowItems.length - 1, coverflowCurrent + 1);
-        renderCoverflow();
-      }
-    });
-    window.addEventListener("resize", renderCoverflow);
-    renderCoverflow();
-  }
-  var revealEls = document.querySelectorAll(".reveal-card");
-  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-    revealEls.forEach(function (card) { card.classList.add("is-revealed"); });
-  } else {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-revealed");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -18% 0px" });
-    revealEls.forEach(function (card) { revealObserver.observe(card); });
-  }
-})();
-</script>
+    <footer class="footer">
+      <span>PERSEID ECHO &middot; DEMOS</span>
+      <span>&copy; 2026</span>
+    </footer>
+  </div>
 </body>
 </html>
