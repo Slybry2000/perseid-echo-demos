@@ -3,36 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Perseid Echo — Demos</title>
-  <meta name="description" content="An index of demo sites by Perseid Echo." />
-  <meta name="theme-color" content="#0F1F15" />
+  <title>Perseid Echo Creations — Demos</title>
+  <meta name="description" content="A small index of demo sites built by Perseid Echo Creations." />
+  <meta name="theme-color" content="#0D1321" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --moss: #0F1F15;
-      --moss-deep: #071510;
-      --cream: #FAF8F2;
-      --gold: #C9A227;
+      --navy: #0D1321;
+      --navy-2: #131a2b;
+      --slate: #3A4152;
+      --orange: #FF6A2A;
+      --orange-deep: #E15517;
+      --paper: #F6F6F4;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
-      background: var(--moss);
-      color: var(--cream);
-      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--navy);
+      color: var(--paper);
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
       min-height: 100svh;
     }
-    ::selection { background: var(--gold); color: var(--moss-deep); }
+    ::selection { background: var(--orange); color: var(--navy); }
 
     .page {
       min-height: 100svh;
       display: grid;
       grid-template-rows: auto 1fr auto;
-      padding: clamp(32px, 5vw, 72px);
+      padding: clamp(28px, 5vw, 72px);
       gap: clamp(48px, 8vh, 96px);
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
     }
 
     .chrome {
@@ -42,112 +48,156 @@
       gap: 24px;
     }
     .wordmark {
-      font-size: 13px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--paper);
+      text-decoration: none;
+    }
+    .wordmark .wordmark__accent {
+      color: var(--orange);
+      letter-spacing: 0.18em;
+    }
+    .wordmark .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--orange);
+      display: inline-block;
+      transform: translateY(-1px);
+    }
+    .index-tag {
+      font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-    }
-    .index-tag {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(250, 248, 242, 0.55);
+      color: rgba(246, 246, 244, 0.50);
     }
 
     .main {
       display: grid;
       align-content: center;
-      gap: clamp(48px, 6vh, 80px);
-      max-width: 880px;
+      gap: clamp(40px, 6vh, 72px);
+      max-width: 920px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
     }
 
     .lede {
-      font-weight: 500;
-      font-size: clamp(40px, 5.6vw, 76px);
-      line-height: 1.04;
-      letter-spacing: -0.015em;
+      font-weight: 600;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
       max-width: 18ch;
+      color: var(--paper);
     }
     .lede em {
-      font-style: italic;
-      color: var(--gold);
-      font-weight: 500;
+      font-style: normal;
+      color: var(--orange);
+      font-weight: 600;
+    }
+    .sub {
+      margin-top: 16px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(246, 246, 244, 0.70);
+      max-width: 56ch;
+      font-weight: 400;
     }
 
     .demos {
       list-style: none;
-      border-top: 1px solid rgba(250, 248, 242, 0.18);
+      border-top: 1px solid rgba(246, 246, 244, 0.14);
     }
     .demos li {
-      border-bottom: 1px solid rgba(250, 248, 242, 0.12);
+      border-bottom: 1px solid rgba(246, 246, 244, 0.10);
     }
     .demos a {
       display: grid;
       grid-template-columns: 56px minmax(0, 1fr) auto;
       column-gap: 24px;
-      align-items: baseline;
+      align-items: center;
       padding: 28px 0;
       text-decoration: none;
-      color: var(--cream);
-      transition: color 200ms ease, transform 220ms ease;
+      color: var(--paper);
+      transition: color 200ms ease, padding-left 220ms ease;
     }
     .demos a:hover,
     .demos a:focus-visible {
-      color: var(--gold);
+      color: var(--orange);
       outline: none;
+      padding-left: 8px;
     }
     .demos a:hover .arrow,
     .demos a:focus-visible .arrow {
-      transform: translateX(6px);
-      color: var(--gold);
+      transform: translateX(8px);
+      color: var(--orange);
     }
 
     .num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-size: 12px;
+      font-weight: 600;
       letter-spacing: 0.18em;
-      color: var(--gold);
-      padding-top: 12px;
+      color: var(--orange);
     }
     .demo-name {
-      font-weight: 500;
-      font-size: clamp(28px, 3.2vw, 44px);
-      line-height: 1.15;
-      letter-spacing: -0.01em;
+      font-weight: 600;
+      font-size: clamp(24px, 2.8vw, 36px);
+      line-height: 1.18;
+      letter-spacing: -0.015em;
     }
     .demo-sub {
       display: block;
       margin-top: 6px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(250, 248, 242, 0.55);
+      color: rgba(246, 246, 244, 0.50);
     }
     .arrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      color: rgba(250, 248, 242, 0.55);
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(246, 246, 244, 0.45);
       transition: transform 220ms ease, color 220ms ease;
-      align-self: center;
     }
 
     .footer {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 24px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
+      font-size: 11px;
+      font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(250, 248, 242, 0.55);
+      color: rgba(246, 246, 244, 0.45);
+    }
+    .footer a {
+      color: rgba(246, 246, 244, 0.65);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .footer a:hover,
+    .footer a:focus-visible {
+      color: var(--orange);
+      outline: none;
     }
 
     @media (max-width: 600px) {
-      .demos a { grid-template-columns: 40px minmax(0, 1fr) auto; column-gap: 16px; }
-      .footer { flex-direction: column; gap: 8px; }
+      .demos a { grid-template-columns: 36px minmax(0, 1fr) auto; column-gap: 16px; }
+      .footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .chrome { flex-direction: column; align-items: flex-start; gap: 10px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -157,12 +207,17 @@
 <body>
   <div class="page">
     <header class="chrome">
-      <span class="wordmark">Perseid Echo</span>
-      <span class="index-tag">INDEX / DEMOS</span>
+      <a class="wordmark" href="https://perseidechocreations.com/" aria-label="Perseid Echo Creations">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Perseid Echo <span class="wordmark__accent">Creations</span></span>
+      </a>
+      <span class="index-tag">Index / Demos</span>
     </header>
 
     <main class="main">
-      <h1 class="lede">A small index of <em>demo</em> sites.</h1>
+      <p class="eyebrow">AI Agent Automations &middot; Demo Index</p>
+      <h1 class="lede">Working sites we&rsquo;ve built. Pick one to <em>see it live</em>.</h1>
+      <p class="sub">Each demo is a real, deployable site &mdash; not a mockup. Built to scale, designed to perform.</p>
 
       <ol class="demos" role="list">
         <li>
@@ -189,8 +244,8 @@
     </main>
 
     <footer class="footer">
-      <span>PERSEID ECHO &middot; DEMOS</span>
-      <span>&copy; 2026</span>
+      <span>Perseid Echo Creations &middot; &copy; 2026</span>
+      <a href="https://perseidechocreations.com/">perseidechocreations.com</a>
     </footer>
   </div>
 </body>
